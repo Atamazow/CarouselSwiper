@@ -1,0 +1,25 @@
+.carousel-container {
+    position: relative;
+    top: 20%;
+    margin: auto;
+}
+
+.carousel-viewport {
+    height: 45vh; /* Высота видимой области */
+    overflow: hidden; /* Скрываем нижнюю часть карусели */
+    display: flex;
+}
+
+.carousel-item {
+    width: 400px;
+}
+.image--carousel {
+    transform: scale(2.3);
+    user-drag: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
+}
