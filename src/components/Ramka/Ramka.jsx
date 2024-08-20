@@ -1,87 +1,62 @@
-import { useState } from "react";
-import image from '../../assets/image/1-Photoroom.png'
-import image2 from '../../assets/image/regentstreet_wip8.0001-Photoroom.png'
-import image3 from '../../assets/image/isometric3-Photoroom.png'
-import "./Carousel.css"
-const slides = [
-    { id: 1, src: image, alt: 'Carousel' },
-    { id: 2, src: image2, alt: 'Carousel' },
-    { id: 3, src: image, alt: 'Carousel' },
-    { id: 4, src: image, alt: 'Carousel' },
-    { id: 5, src: image, alt: 'Carousel' },
-    { id: 6, src: image, alt: 'Carousel' },
-    { id: 7, src: image, alt: 'Carousel' },
-    { id: 8, src: image, alt: 'Carousel' },
-    { id: 9, src: image, alt: 'Carousel' },
-    { id: 10, src: image, alt: 'Carousel' },
-    { id: 11, src: image, alt: 'Carousel' },
-];
+import React, { useState, useRef, useEffect } from 'react';
+import './'; // Для стилей
 
-const Carousel = () => {
+const Spinner = () => {
     const [angle, setAngle] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
-    const radius = 540; // радиус окружности
-    const itemAngle = 360 / slides.length; // угол, охватывающий один элемент
+    const spinnerRef = useRef(null);
+    const isDragging = useRef(false);
+    const startAngle = useRef(0);
 
-    const handleMouseDown = (event) => {
-        event.preventDefault();
-        const startX = event.clientX;
+    const handleMouseDown = (e) => {
+        isDragging.current = true;
+        const rect = spinnerRef.current.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const startX = e.clientX - centerX;
+        const startY = e.clientY - centerY;
+        startAngle.current = Math.atan2(startY, startX) * (180 / Math.PI);
+    };
 
-        const handleMouseMove = (moveEvent) => {
-            const dx = moveEvent.clientX - startX;
-            setIsAnimating(false); // отключаем анимацию во время перетаскивания
-            setAngle(prevAngle => prevAngle + dx * 0.01);
-        };
+    const handleMouseMove = (e) => {
+        if (!isDragging.current) return;
+        const rect = spinnerRef.current.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const currentX = e.clientX - centerX;
+        const currentY = e.clientY - centerY;
+        const currentAngle = Math.atan2(currentY, currentX) * (180 / Math.PI);
+        const angleDiff = currentAngle - startAngle.current;
+        setAngle((prevAngle) => prevAngle + angleDiff);
+        startAngle.current = currentAngle;
+    };
 
-        const handleMouseUp = () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-            window.removeEventListener('mouseup', handleMouseUp);
-        };
+    const handleMouseUp = () => {
+        isDragging.current = false;
+    };
 
-        window.addEventListener('mousemove', handleMouseMove);
+    useEffect(() => {
         window.addEventListener('mouseup', handleMouseUp);
-    };
-
-    const spinCarousel = (direction) => {
-        setIsAnimating(true); // включаем анимацию при клике на кнопку
-        setAngle(prevAngle => prevAngle + direction * itemAngle);
-    };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+            window.removeEventListener('mouseup', handleMouseUp);
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, []);
 
     return (
-        <div className="carousel-wrapper">
-            <div className="carousel-viewport">
-                <div
-                    className="carousel-container"
-                    onMouseDown={handleMouseDown}
-                    style={{width: `${radius * 2}px`, height: `${radius * 2}px`, position: 'relative'}}
-                >
-                    {slides.map((item, index) => {
-                        const theta = (index * itemAngle) + angle;
-                        const x = radius * Math.cos(theta * (Math.PI / 180));
-                        const y = radius * Math.sin(theta * (Math.PI / 180));
-
-                        return (
-                            <div
-                                key={index}
-                                className="carousel-item"
-                                style={{
-                                    position: 'absolute',
-                                    width: '100px',
-                                    height: '100px',
-                                    left: `${x + radius - 50}px`, // Центрирование по оси X
-                                    top: `${y + radius - 50}px`, // Центрирование по оси Y
-                                    transformOrigin: 'center center',
-                                    transition: isAnimating ? 'transform 0.5s ease' : 'none',
-                                }}
-                            >
-                                <img src={item.src} alt={item.alt} className='image--carousel' />
-                            </div>
-                        );
-                    })}
+        <div
+            ref={spinnerRef}
+            className="spinner"
+            style={{ transform: `rotate(${angle}deg)` }}
+            onMouseDown={handleMouseDown}
+        >
+            {[...Array(15)].map((_, index) => (
+                <div key={index} className="spinner-item">
+                    Item {index + 1}
                 </div>
-            </div>
+            ))}
         </div>
     );
 };
 
-export default Carousel;
+export default Spinner;

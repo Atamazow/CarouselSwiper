@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import image1 from '../../assets/carouselImage/Frame 427320831.png';
-import image2 from '../../assets/carouselImage/Frame 427320833.png';
-import image3 from '../../assets/carouselImage/Frame 427320832.png';
-import image4 from '../../assets/carouselImage/apartment4.png';
+import image1 from '../assets/carouselImage/Frame 427320831.png';
+import image2 from '../assets/carouselImage/Frame 427320833.png';
+import image3 from '../assets/carouselImage/Frame 427320832.png';
+import image4 from '../assets/carouselImage/apartment4.png';
+import borderDuga from '../assets/image/SliderBorder.svg';
+import "./adaptivBorder.css";
+import "./adaptivCarousel.css";
 
-import "./Carousel.css";  // Подключаем CSS файл
-import "./Border.css";
-import {logDOM} from "@testing-library/react";
 const slides = [
     { id: 1, src: image1, alt: 'Carousel' },
     { id: 2, src: image2, alt: 'Carousel' },
@@ -23,21 +23,18 @@ const slides = [
     { id: 13, src: image4, alt: 'Carousel' },
     { id: 14, src: image2, alt: 'Carousel' },
     { id: 15, src: image3, alt: 'Carousel' },
-    // другие изображения...
 ];
 
 const Carousel = () => {
     const [currentIndex, setCurrentIndex] = useState(() => Math.round(slides.length / 2));
     const [angle, setAngle] = useState(0);
     const [velocity, setVelocity] = useState(0);
-    const [dragStartX, setDragStartX] = useState(null);
     const [isDisabledStap, setIsDisabledStap] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
-    const radius = 1350; // радиус окружности
-    const itemAngle = 360 / slides.length; // угол, охватывающий один элемент
-    const Dragging = useRef(false)
+    const radius = 1350;
+    const itemAngle = 360 / slides.length;
+    const Dragging = useRef(false);
     const lastMoveTime = useRef(0);
-    const dragStartXRef = useRef(0);
 
     useEffect(() => {
         const initialAngle = itemAngle * 1.25;
@@ -49,26 +46,22 @@ const Carousel = () => {
             const interval = setInterval(() => {
                 setAngle(prevAngle => {
                     let newAngle = prevAngle + velocity;
-
-                    // Определяем ближайший индекс к 270 градусам
                     const topIndex = getTopIndex();
-                    const targetAngle = 270 - (topIndex * itemAngle); // Целевой угол
+                    const targetAngle = 270 - (topIndex * itemAngle);
 
-                    // Нормализуем угол
                     const normalizedAngle = newAngle % 360;
 
-                    // Если угол близок к целевому, начинаем плавное торможение и выравнивание
                     if (Math.abs(normalizedAngle - targetAngle) < 10) {
                         const diff = targetAngle - normalizedAngle;
-                        newAngle += diff * 0.1; // Плавно подгоняем угол к целевому
-                        setVelocity(prevVelocity => prevVelocity * 0.95); // Плавное замедление
+                        newAngle += diff * 0.1;
+                        setVelocity(prevVelocity => prevVelocity * 0.95);
                     }
 
                     return newAngle;
                 });
 
                 setVelocity(prevVelocity => {
-                    const newVelocity = prevVelocity * 0.8; // Замедляем вращение постепенно
+                    const newVelocity = prevVelocity * 0.8;
                     if (Math.abs(newVelocity) < 0.001) {
                         clearInterval(interval);
                         return 0;
@@ -79,7 +72,8 @@ const Carousel = () => {
             return () => clearInterval(interval);
         }
     }, [velocity]);
-     const handleMouseDown = (event) => {
+
+    const handleMouseDown = (event) => {
         Dragging.current = true;
         lastMoveTime.current = event.timeStamp;
         event.preventDefault();
@@ -91,16 +85,14 @@ const Carousel = () => {
                 const dt = moveEvent.timeStamp - lastMoveTime.current;
                 const speed = dx / dt;
 
-                // Уменьшение коэффициента для медленного вращения
-                setAngle(prevAngle => prevAngle + dx * 0.009); // Здесь коэффициент dx * 0.01 для медленного вращения
-                setVelocity(speed * 0.5); // Также уменьшаем скорость, чтобы спиннер вращался медленно
+                setAngle(prevAngle => prevAngle + dx * 0.009);
+                setVelocity(speed * 0.5);
                 lastMoveTime.current = moveEvent.timeStamp;
             }
         };
 
         const handleMouseUp = () => {
             Dragging.current = false;
-            dragStartXRef.current = event.clientX;
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('mouseup', handleMouseUp);
         };
@@ -108,9 +100,10 @@ const Carousel = () => {
         window.addEventListener('mousemove', handleMouseMove);
         window.addEventListener('mouseup', handleMouseUp);
     };
+
     const animateRotation = (startAngle, endAngle, duration, onAnimationEnd) => {
-         const startTime = performance.now();
-         const animate = (currentTime) => {
+        const startTime = performance.now();
+        const animate = (currentTime) => {
             const elapsedTime = currentTime - startTime;
             const progress = Math.min(elapsedTime / duration, 1);
             const currentAngle = startAngle + (endAngle - startAngle) * progress;
@@ -119,29 +112,25 @@ const Carousel = () => {
             if (progress < 1) {
                 requestAnimationFrame(animate);
             } else {
-                onAnimationEnd()
-                // Вызов функции по завершению анимации
+                onAnimationEnd();
             }
         };
         requestAnimationFrame(animate);
     };
 
-
     const spinCarousel = (direction) => {
-        setIsDisabledStap(true)
-         if (!isDisabledStap) {
-            setTimeout(() => setIsDisabledStap(false),300)
-
+        setIsDisabledStap(true);
+        if (!isDisabledStap) {
+            setTimeout(() => setIsDisabledStap(false), 300);
         }
-        const targetIndex = (currentIndex + direction + slides.length) % slides.length; // Рассчитываем новый индекс
+        const targetIndex = (currentIndex + direction + slides.length) % slides.length;
         setIsDragging(false);
         Dragging.current = false;
         const startAngle = angle;
         const endAngle = startAngle + direction * itemAngle;
         animateRotation(startAngle, endAngle, 250, () => {
-            setCurrentIndex(targetIndex); // Обновляем индекс после завершения анимации
+            setCurrentIndex(targetIndex);
         });
-
     };
 
     const handlePrevClick = () => {
@@ -151,6 +140,7 @@ const Carousel = () => {
     const handleNextClick = () => {
         spinCarousel(1);
     };
+
     const getTopIndex = () => {
         const normalizedAngle = angle % 360;
         const nearestIndex = slides
@@ -163,15 +153,15 @@ const Carousel = () => {
     const getClassNames = (index) => {
         const topIndex = getTopIndex();
 
-        if (index === topIndex) return 'carousel-item center'; // Центральный элемент на вершине
+        if (index === topIndex) return 'carousel-item center';
         const relativeIndex = (index - topIndex + slides.length) % slides.length;
 
-        if (relativeIndex === 1) return 'carousel-item right-1'; // Первый справа от центра
-        if (relativeIndex === 2) return 'carousel-item right-2'; // Второй справа от центра
-        if (relativeIndex === slides.length - 1) return 'carousel-item left-1'; // Первый слева от центра
-        if (relativeIndex === slides.length - 2) return 'carousel-item left-2'; // Второй слева от центра
+        if (relativeIndex === 1) return 'carousel-item right-1';
+        if (relativeIndex === 2) return 'carousel-item right-2';
+        if (relativeIndex === slides.length - 1) return 'carousel-item left-1';
+        if (relativeIndex === slides.length - 2) return 'carousel-item left-2';
 
-        return 'carousel-item hidden'; // Остальные элементы скрыты
+        return 'carousel-item hidden';
     };
 
     return (
@@ -180,7 +170,7 @@ const Carousel = () => {
                 <div
                     className="carousel-viewport"
                     onMouseDown={handleMouseDown}
-                    onMouseLeave={() => setDragStartX(null)}
+                    onMouseLeave={() => setIsDragging(false)}
                 >
                     <div className="carousel-container">
                         {slides.map((item, index) => {
@@ -199,7 +189,7 @@ const Carousel = () => {
                                         width: '400px',
                                         left: `${x + radius - 50}px`,
                                         top: `${y + radius - 50}px`,
-                                     }}
+                                    }}
                                 >
                                     <img src={item.src} alt={item.alt} className='image'/>
                                     <div className="item-alt-text">{item.id}</div>
@@ -211,26 +201,20 @@ const Carousel = () => {
             </div>
             <div className="container">
                 <div onMouseDown={handleMouseDown} className="border--carousel">
+                    <img src={borderDuga} alt=""/>
                     <div className="text-navigation-container">
-                        <div className="border--carousel-text">
-
-                        </div>
                         <div className="navigation">
                             <button disabled={isDisabledStap} onClick={handleNextClick} className="forward">←</button>
-
                             <button disabled={isDisabledStap} onClick={handlePrevClick} className="back">→</button>
                         </div>
                     </div>
-                </div>
-                <div className='wrapper--carousel--textBtn'>
-
-                    <div className='carousel--subtitle'>EXAMPLE OF HOW <br/> <span>DIGITIZATION WORKS</span></div>
-                    <div className='carousel--text'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                        commodo ligula eget dolor. Aenean massa
-                    </div>
-                    <div className='carousel--btn'>
-                        <div className='carousel--btn-title'>
-                            READ MORE
+                    <div className='wrapper--carousel--textBtn'>
+                        <div className='carousel--subtitle'>EXAMPLE OF HOW <br/> <span>DIGITIZATION WORKS</span></div>
+                        <div className='carousel--text'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa</div>
+                        <div className='carousel--btn'>
+                            <div className='carousel--btn-title'>
+                                READ MORE
+                            </div>
                         </div>
                     </div>
                 </div>

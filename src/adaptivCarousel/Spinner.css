@@ -1,0 +1,22 @@
+.spinner-container {
+    width: 800px;
+    height: 900px;
+    position: relative;
+    margin: 50px auto;
+    transform-origin: center;
+    overflow: hidden;
+}
+
+.spinner-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background-color: #ddd;
+    border-radius: 10px;
+    transform-origin: top center;
+    transition: transform 0.2s ease;
+}

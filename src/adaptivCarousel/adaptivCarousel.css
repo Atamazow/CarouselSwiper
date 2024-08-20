@@ -2,6 +2,7 @@
     position: relative;
     width: 1920px;
     margin: auto;
+    z-index: 1;
 }
 
 .carousel-container {
@@ -13,7 +14,7 @@
 .carousel-viewport {
     height: 60vh; /* Высота видимой области */
     overflow: hidden; /* Скрываем нижнюю часть карусели */
-  }
+}
 .image--carousel {
     opacity: 1;
     transform: scale(2.3);
@@ -32,7 +33,7 @@
     justify-content: center;
     position: relative;
     max-width: 100%;
-  }
+}
 
 
 .slider {
@@ -61,7 +62,7 @@
     opacity: 0.4;
     z-index: 1;
     transform: translateX(-10%) translateY(60%) rotate(35deg);
- }
+}
 
 .carousel-item.right-2 {
     opacity: 0.6;
@@ -79,21 +80,21 @@
 .carousel-item.left-2 {
     opacity: 0.6;
     z-index: 0;
-    transform: translateY(100%);
+
     display: none;
- }
+}
 
 .carousel-item.hidden{
     opacity: 0.6;
     z-index: 1;
- }
+}
 .carousel-item. {
     transform: translateY(50%);
 }
 
 .image {
-     z-index: 10;
-     transition: width 0.5s ease-in-out,  opacity 0s ;
+    z-index: 10;
+    transition: width 0.5s ease-in-out,  opacity 0s ;
     user-drag: none;
     user-select: none;
     -webkit-user-drag: none;
@@ -107,7 +108,7 @@
     color: #E03C31;
     font-size: 20px;
     position: absolute;
-    bottom: -5%;
+    bottom: -60px;
     text-align: center;
 }
 
@@ -126,13 +127,22 @@
 @media (max-width: 1550px) {
     .carousel-wrapper {
         width: 1500px;
-        margin: auto;
+        margin: 0;
     }
     .carousel-container {
         position: absolute;
         left: -50%;
         top: -65%;
         transform: translate(-39%, -50%);
+    }
+    .item-alt-text {
+        z-index: 2;
+        color: #E03C31;
+        font-size: 20px;
+        position: absolute;
+        bottom: 0;
+        right: 43%;
+        text-align: center;
     }
 }
 
@@ -146,7 +156,7 @@
         left: -80%;
     }
     .image {
-         transform: scale(1);
+        transform: scale(1);
     }
     .item-alt-text {
         position: absolute;

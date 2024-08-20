@@ -1,49 +1,38 @@
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin:  auto;
+    width: 1920px;
+    margin: auto;
     position: relative;
 }
 
 .border--carousel {
-    background-image: url("../../assets/image/SliderBorder.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     position: absolute;
-    top: -100%;
-    width: 100%;
-    height: 150px; /* Высота под изображение */
-
-
-}
-
-
-.border--carousel-text {
-    color: black;
-    position: absolute;
-    font-size: 16px;
-    margin-bottom: 10px; /* Отступ между текстом и навигацией */
-}
-
+ }
 .wrapper--carousel--textBtn {
     width: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
- }
+}
 
 .navigation {
     display: inline-block; /* Для центрирования навигации под текстом */
     position: absolute;
-    top: 65%;
+    top: 25%;
+    background-color: #E03C31;
     left: 50%;
     transform: translate(-51%,-50%);
     padding: 10px;
     border: 1px solid #D9D9D9;
     border-radius: 40px;
+    z-index: 10;
 }
 
 .navigation button {
@@ -55,8 +44,8 @@
     font-family: "Goldman", sans-serif;
     line-height: 28px;
     font-size: 32px;
-     text-align: center;
- }
+    text-align: center;
+}
 
 .carousel--subtitle span {
     color: #E03C31;
@@ -72,11 +61,11 @@
 }
 
 .carousel--btn {
-    background-image: url("../../assets/image/Frame 427319273.png");
+    background-image: url("../assets/image/Frame 427319273.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-     width: 288px;
+    width: 288px;
     height: 78px;
     cursor: pointer;
 }
@@ -88,23 +77,6 @@
     justify-content: center;
 }
 
-@media (max-width: 1980px) {
-    .border--carousel {
-        position: absolute;
-        top: -74%;
-    }
-}
-
-@media (max-width: 1920px) {
-    .border--carousel {
-        position: absolute;
-        top: -74%;
-    }
-}
-
 @media (max-width: 1280px) {
-    .border--carousel {
-        position: absolute;
-        top: -74%;
-    }
+
 }
