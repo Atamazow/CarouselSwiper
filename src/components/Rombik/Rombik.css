@@ -1,0 +1,59 @@
+.hexStepCard--wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: -20%;
+    justify-items: center;
+    align-items: center;
+    width: 1220px;
+    margin: 0 auto;
+}
+
+.card-block {
+    background-image: url("../../assets/carouselImage/CardRomb.svg");
+    background-size: cover;
+    position: relative;
+    width: 570px;
+    height: 640px;
+}
+
+.subCartImage {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%);
+}
+
+.cardRomb--textTitle {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+}
+
+.title--cardRombik {
+    line-height: 35px;
+    font-size: 40px;
+}
+
+.text--cardRombik {
+    font-size: 16px;
+    color: #898989;
+    margin-top: 16px;
+}
+
+.hexStepCard--wrapper > :nth-child(3) {
+    grid-column: 1 / -1;
+    margin-top: -120px;
+ }
+
+.hexStepCard--wrapper > :nth-child(4) {
+    margin-top: -120px;
+}
+
+.hexStepCard--wrapper > :nth-child(5) {
+    margin-top: -120px;
+}
