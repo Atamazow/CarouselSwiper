@@ -28,6 +28,7 @@ const Rombik = () => {
                     </div>
                 </div>
             ))}
+
         </div>
     );
 };

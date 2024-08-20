@@ -2,8 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
-    gap: -20%;
-    justify-items: center;
+     justify-items: center;
     align-items: center;
     width: 1220px;
     margin: 0 auto;
@@ -13,8 +12,8 @@
     background-image: url("../../assets/carouselImage/CardRomb.svg");
     background-size: cover;
     position: relative;
-    width: 570px;
-    height: 640px;
+    width: 500px;
+    height: 565px;
 }
 
 .subCartImage {
