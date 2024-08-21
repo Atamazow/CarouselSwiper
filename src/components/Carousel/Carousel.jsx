@@ -3,7 +3,7 @@ import image1 from '../../assets/carouselImage/Frame 427320831.png';
 import image2 from '../../assets/carouselImage/Frame 427320833.png';
 import image3 from '../../assets/carouselImage/Frame 427320832.png';
 import image4 from '../../assets/carouselImage/apartment4.png';
-
+import borderDuga from '../../assets/image/SliderBorder.svg'
 import "./Carousel.css";  // Подключаем CSS файл
 import "./Border.css";
 import {logDOM} from "@testing-library/react";
@@ -199,7 +199,7 @@ const Carousel = () => {
                                         width: '400px',
                                         left: `${x + radius - 50}px`,
                                         top: `${y + radius - 50}px`,
-                                     }}
+                                    }}
                                 >
                                     <img src={item.src} alt={item.alt} className='image'/>
                                     <div className="item-alt-text">{item.id}</div>
@@ -207,30 +207,29 @@ const Carousel = () => {
                             );
                         })}
                     </div>
-                </div>
-            </div>
-            <div className="container">
-                <div onMouseDown={handleMouseDown} className="border--carousel">
-                    <div className="text-navigation-container">
-                        <div className="border--carousel-text">
+                    <div className="container">
+                        <img  className="imageDuga" src={borderDuga} alt=""/>
+                             <div className="text-navigation-container">
+                                <div className="navigation">
+                                    <button disabled={isDisabledStap} onClick={handleNextClick} className="forward">←
+                                    </button>
 
-                        </div>
-                        <div className="navigation">
-                            <button disabled={isDisabledStap} onClick={handleNextClick} className="forward">←</button>
-
-                            <button disabled={isDisabledStap} onClick={handlePrevClick} className="back">→</button>
-                        </div>
-                    </div>
-                </div>
-                <div className='wrapper--carousel--textBtn'>
-
-                    <div className='carousel--subtitle'>EXAMPLE OF HOW <br/> <span>DIGITIZATION WORKS</span></div>
-                    <div className='carousel--text'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                        commodo ligula eget dolor. Aenean massa
-                    </div>
-                    <div className='carousel--btn'>
-                        <div className='carousel--btn-title'>
-                            READ MORE
+                                    <button disabled={isDisabledStap} onClick={handlePrevClick} className="back">→
+                                    </button>
+                                </div>
+                            </div>
+                        <div className='wrapper--carousel--textBtn'>
+                            <div className='carousel--subtitle'>EXAMPLE OF HOW <br/> <span>DIGITIZATION WORKS</span>
+                            </div>
+                            <div className='carousel--text'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                Aenean
+                                commodo ligula eget dolor. Aenean massa
+                            </div>
+                            <div className='carousel--btn'>
+                                <div className='carousel--btn-title'>
+                                    READ MORE
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

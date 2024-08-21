@@ -1,5 +1,6 @@
 import React from 'react';
 import subCart from '../../assets/carouselImage/Subtract.svg';
+import headerRombDuga from '../../assets/carouselImage/headerDugaRomb.svg'
 import './Rombik.css';
 
 const cardRombik = [
@@ -12,25 +13,28 @@ const cardRombik = [
 
 const Rombik = () => {
     return (
-        <div className="hexStepCard--wrapper">
-            {cardRombik.map((card, index) => (
-                <div className='card-block' key={index}>
-                    <div>
-                        <img className='subCartImage' src={subCart} alt=""/>
-                    </div>
-                    <div className='cardRomb--textTitle'>
-                        <div className="title--cardRombik">
-                            {card.title}
-                        </div>
-                        <div className="text--cardRombik">
-                            {card.text}
-                        </div>
-                    </div>
-                </div>
-            ))}
 
-        </div>
-    );
+            <div className="wrapper--romb">
+                <img className='headerDugaRomb' src={headerRombDuga} alt=""/>
+                <div className="hexStepCard--wrapper">
+                    {cardRombik.map((card, index) => (
+                        <div className='card-block' key={index}>
+                            <div>
+                                <img className='subCartImage' src={subCart} alt=""/>
+                            </div>
+                            <div className='cardRomb--textTitle'>
+                                <div className="title--cardRombik">
+                                    {card.title}
+                                </div>
+                                <div className="text--cardRombik">
+                                    {card.text}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+     );
 };
 
 export default Rombik;

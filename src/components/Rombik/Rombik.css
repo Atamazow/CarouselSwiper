@@ -1,11 +1,19 @@
+.wrapper--romb {
+    width: 1920px;
+    margin: 0 auto;
+    position: relative;
+ }
+
+.headerDugaRomb {
+    width: 100%;
+ }
+
 .hexStepCard--wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
-     justify-items: center;
+    justify-items: center;
     align-items: center;
-    width: 1220px;
-    margin: 0 auto;
 }
 
 .card-block {
@@ -47,21 +55,80 @@
 .hexStepCard--wrapper > :nth-child(3) {
     grid-column: 1 / -1;
     margin-top: -120px;
- }
+    transform:  translateY(-20%);
 
-.hexStepCard--wrapper > :nth-child(4) {
-    margin-top: -120px;
-    margin-left:80px;
 }
 
+.hexStepCard--wrapper > :nth-child(4) {
+    transform: translateX(44.5%) translateY(-40%);
+ }
+
 .hexStepCard--wrapper > :nth-child(5) {
-    margin-top: -120px;
-    margin-left:-80px;
+    transform: translateX(-44.5%) translateY(-40%);
 }
 
 .hexStepCard--wrapper > :nth-child(1) {
-    margin-left: 75px;
- }
+    transform: translateX(44.5%) translateY(-20%);
+
+}
 .hexStepCard--wrapper > :nth-child(2) {
-    margin-right: 75px;
+     transform: translateX(-44.5%) translateY(-20%);
+}
+
+@media screen and (max-width: 1550px){
+    .wrapper--romb {
+        width: 1500px;
+        margin: auto;
+    }
+    .card-block {
+        width: 350px;
+        height: 395px;
+    }
+    .subCartImage {
+        width: 50px;
+        position: absolute;
+        left: 50%;
+        top: 10%;
+        transform: translate(-50%);
+    }
+    .title--cardRombik {
+        font-size: 25px;
+        line-height: 24px;
+    }
+    .text--cardRombik {
+        font-size: 10px;
+    }
+    .cardRomb--textTitle {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%);
+        text-align: center;
+    }
+    .hexStepCard--wrapper > :nth-child(1) {
+        transform: translateX(55%) translateY(-25%);
+
+    }
+
+    .hexStepCard--wrapper > :nth-child(2) {
+        transform: translateX(-55%) translateY(-25%);
+    }
+
+    .hexStepCard--wrapper > :nth-child(3) {
+        grid-column: 1 / -1;
+        transform:  translateY(-15%);
+
+    }
+
+    .hexStepCard--wrapper > :nth-child(4) {
+        transform: translateX(55%) translateY(-35%);
+    }
+
+    .hexStepCard--wrapper > :nth-child(5) {
+        transform: translateX(-55%) translateY(-35%);
+    }
+    .headerDugaRomb {
+        margin-left: 0;
+    }
+
 }
