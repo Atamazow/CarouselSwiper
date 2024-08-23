@@ -6,8 +6,7 @@ import image4 from '../../assets/carouselImage/apartment4.png';
 import borderDuga from '../../assets/image/SliderBorder.svg'
 import "./Carousel.css";  // Подключаем CSS файл
 import "./Border.css";
-import {logDOM} from "@testing-library/react";
-const slides = [
+ const slides = [
     { id: 1, src: image1, alt: 'Carousel' },
     { id: 2, src: image2, alt: 'Carousel' },
     { id: 3, src: image3, alt: 'Carousel' },
@@ -38,6 +37,7 @@ const Carousel = () => {
     const Dragging = useRef(false)
     const lastMoveTime = useRef(0);
     const dragStartXRef = useRef(0);
+    const [houses,setHouses] = useState(0);
 
     useEffect(() => {
         const initialAngle = itemAngle * 1.25;
@@ -146,10 +146,14 @@ const Carousel = () => {
 
     const handlePrevClick = () => {
         spinCarousel(-1);
+        setHouses(prev => prev < 15 ? prev + 1 : 1)
+
     };
 
     const handleNextClick = () => {
         spinCarousel(1);
+        setHouses(prev => prev > 1 ? prev - 1 : 15);
+
     };
     const getTopIndex = () => {
         const normalizedAngle = angle % 360;
@@ -174,7 +178,9 @@ const Carousel = () => {
         return 'carousel-item hidden'; // Остальные элементы скрыты
     };
 
-    return (
+
+
+     return (
         <>
             <div className="carousel-wrapper">
                 <div
@@ -214,7 +220,7 @@ const Carousel = () => {
                                 <div className="navigation">
                                     <button disabled={isDisabledStap} onClick={handleNextClick} className="forward">←
                                     </button>
-
+                                    {houses}
                                     <button disabled={isDisabledStap} onClick={handlePrevClick} className="back">→
                                     </button>
                                 </div>
