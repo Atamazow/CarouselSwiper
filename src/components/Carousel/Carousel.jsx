@@ -208,6 +208,7 @@ const Carousel = () => {
                         })}
                     </div>
                     <div className="container">
+
                         <img  className="imageDuga" src={borderDuga} alt=""/>
                              <div className="text-navigation-container">
                                 <div className="navigation">

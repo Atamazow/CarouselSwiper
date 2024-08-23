@@ -1,0 +1,57 @@
+.contact-form-section {
+
+    border-radius: 24px;
+    width: 650px;
+    margin: -120px auto;
+    background: url("../../assets/image/ContactAixlandRamka.svg");
+    background-size: cover;
+ }
+
+.contact-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 42px 60px 28px 60px;  ;
+}
+
+.contactInput.message {
+    height: 170px;
+}
+
+.contactInput.message::placeholder {
+
+}
+
+.contact-form-section .section-header {
+    display: flex;
+}
+
+.contact-form-section .section-header .content-container {
+    align-self: center;
+    padding: 7rem;
+}
+
+.contact-form-section .section-header .content-container .content-title {
+    font-size: 63px;
+    font-weight: 700;
+    line-height: 67px;
+}
+
+.contact-form-section .section-header .content-container .content-text {
+    font-size: 18px;
+    font-family: Montserrat;
+    font-weight: 400;
+    margin-top: 24px;
+}
+
+.contact-form-section .contact-form .form-group .contactInput {
+    width: 545px;
+    padding: 16px 20px;
+    background-color: #F7F7F7;
+     margin: 14px 0;
+    color: #25282A;
+    font-size: 17px;
+
+}
+

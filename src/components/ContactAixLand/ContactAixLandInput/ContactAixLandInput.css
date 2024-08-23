@@ -1,0 +1,80 @@
+
+.country-selector {
+    position: relative;
+    width: 545px;
+    padding: 16px 20px;
+     border-radius: 8px;
+    background-color: #F7F7F7;
+    display: flex;
+    align-items: center;
+ }
+
+.selected-country {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.selected-country .content-selectedCountry {
+    margin-left: 10px;
+}
+
+.selected-country .flag {
+    margin-right: 10px;
+}
+
+.selected-country .dial-code {
+    margin-right: 10px;
+    color: #25282A;
+}
+
+.selected-country .arrow {
+    margin-left: auto;
+    color: #25282A;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    background: rgb(255, 255, 255);
+    max-height: 350px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.dropdown .dial-code {
+    margin-left: 5px;
+}
+
+.dropdown .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown .dropdown-item:hover {
+    background: #f0f0f0;
+    color: #3D3D3D;
+}
+
+.dropdown .dropdown-item .flag {
+    margin-right: 10px;
+}
+
+.phone-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    margin-left: 7px;
+    background: none;
+    color: #25282A;
+    font-size: 16px;
+}
+
+.phone-input::placeholder {
+    color: #25282A;
+}

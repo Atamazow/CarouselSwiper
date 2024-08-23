@@ -8,6 +8,11 @@
     position: relative;
 }
 
+.borderDuga {
+    position: absolute;
+    top: -50%;
+}
+
 .border--carousel {
     display: flex;
     justify-content: center;
