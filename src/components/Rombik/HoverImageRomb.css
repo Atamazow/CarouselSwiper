@@ -1,0 +1,38 @@
+.image--romb {
+    opacity: 0;
+    transition: opacity 0.1s
+}
+
+.card-block:hover .image--romb-1 {
+    transform: translateX(-51%) translateY(-77%);
+    opacity: 1;
+}
+
+.card-block:hover .image--romb-2 {
+    transform: translateX(51%) translateY(-77%);
+    opacity: 1;
+}
+
+.card-block:hover .image--romb-3 {
+    transform: translateX(-101%);
+    opacity: 1;
+}
+
+.card-block:hover .image--romb-4 {
+    transform: translateX(-52.5%) translateY(75%);
+    opacity: 1;
+}
+
+.card-block:hover .image--romb-5 {
+    transform: translateX(52.5%) translateY(75%);
+    opacity: 1;
+}
+
+.image--romb-1{transition: .2s ;}
+.image--romb-2{transition: .2s;}
+.image--romb-3{transition: .2s;}
+.image--romb-4{transition: .2s;}
+.image--romb-5{transition: .2s;}
+
+  
+
