@@ -1,6 +1,6 @@
 .wrapper--romb {
     width: 1920px;
-    margin: 450px auto auto;
+    margin: 200px auto auto;
     position: relative;
  }
 
@@ -83,7 +83,7 @@
 @media screen and (max-width: 1550px){
     .wrapper--romb {
         width: 1500px;
-        margin: auto;
+        margin: 200px auto auto;
     }
     .card-block {
         width: 350px;

@@ -1,0 +1,28 @@
+.wrapper-page {
+    border: 1px solid  #D9D9D9;
+    width:175px;
+    height: 90px;
+    padding: 10px;
+    display: flex;
+    margin: 40px auto 0;
+    border-radius: 80px;
+
+}
+
+.imagePage {
+    width: 100px;
+    margin: auto;
+}
+
+.pageFirstTitle {
+    text-align: center;
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 700;
+    width: 369px;
+    margin: 16px auto;
+    text-transform: uppercase;
+}
+.pageFirstTitle > span {
+    color: #79ADE4;
+}

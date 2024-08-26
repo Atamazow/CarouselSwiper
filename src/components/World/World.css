@@ -1,0 +1,24 @@
+.world--logo--wrapper {
+    background: url("../../assets/image/WorldLogo.svg") center;
+    background-size: cover;
+    height: 1255px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+.world--btn {
+    background-image: url("../../assets/image/orangBtn.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 288px;
+    height: 78px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
