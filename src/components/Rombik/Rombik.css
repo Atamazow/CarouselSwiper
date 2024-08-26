@@ -23,7 +23,7 @@
     width: 500px;
     height: 565px;
     cursor: pointer;
-
+    z-index: 10;
 }
 
 
@@ -34,6 +34,7 @@
     left: 50%;
     top: 20%;
     transform: translate(-50%);
+    z-index: -1;
 }
 
 .cardRomb--textTitle {
@@ -42,6 +43,7 @@
     left: 50%;
     transform: translate(-50%);
     text-align: center;
+    z-index: -1;
 }
 
 .title--cardRombik {

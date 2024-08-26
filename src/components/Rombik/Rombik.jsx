@@ -52,10 +52,9 @@ const Rombik = () => {
     <div className="wrapper--romb">
       <div className="hexStepCard--wrapper">
         {cardRombik.map((card, index) => (
-          <div style={{ transition: "1s" }} className="card-block" key={index}>
+          <div className="card-block" key={index}>
             <img
               className={`image--romb image--romb-${index + 1}`}
-              style={{ transition: "1s" }}
               src={card.image}
               alt=""
             />
