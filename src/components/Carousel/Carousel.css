@@ -1,7 +1,7 @@
 .carousel-wrapper {
     position: relative;
     width: 1920px;
-    margin: 250px auto auto;
+    margin-top: 250px  ;
     z-index: 1;
 }
 
@@ -13,8 +13,7 @@
 }
 
 .carousel-viewport {
-   ; /* Высота видимой области */
-    overflow: hidden; /* Скрываем нижнюю часть карусели */
+     overflow: hidden;
 }
 .image--carousel {
     opacity: 1;
@@ -89,9 +88,11 @@
     opacity: 0.6;
     z-index: 1;
 }
-.carousel-item. {
+.carousel-item {
     transform: translateY(50%);
+    width: 400px;
 }
+
 
 .image {
     z-index: 10;
@@ -130,6 +131,10 @@
         width: 1500px;
         margin-top: 250px;
     }
+
+    .carousel-item {
+        width: 380px;
+    }
     .carousel-container {
         position: absolute;
         left: -50%;
@@ -141,8 +146,8 @@
         color: #E03C31;
         font-size: 20px;
         position: absolute;
-        bottom: -9px;
-        right: 47%;
+        bottom: -38px;
+        right: 44.5%;
         text-align: center;
     }
 }

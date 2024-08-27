@@ -201,7 +201,7 @@ const Carousel = () => {
                   className={classNames}
                   style={{
                     position: "absolute",
-                    width: "400px",
+
                     left: `${x + radius - 50}px`,
                     top: `${y + radius - 50}px`,
                   }}
