@@ -1,0 +1,96 @@
+.wrapper--blue--block {
+    background-image: url("../../assets/image/blue.svg");
+    height: 545px;
+     background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.white--block--text {
+    display: flex;
+    position: absolute;
+    left: 18.5%;
+    top: 10%;
+}
+
+.wrapper--white--block {
+    background-image: url("../../assets/image/WhiteBlock.svg");
+    height: 476px;
+    width: 517px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+.white--text {
+    font-family: Goldman;
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: 700;
+    width: 394px;
+    text-align: center;
+}
+
+.blue--wrapper--text {
+    margin-top: 24px;
+    display: flex;
+}
+
+.blue--text {
+    font-family: "Golos Text";
+    width: 281px;
+    color: white;
+}
+
+.blue--wrapper--text > :nth-child(2) {
+    margin-left: 20px;
+}
+
+.blue--about-title {
+    font-family: "Golos Text";
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.white--subTitle {
+    margin-left: 95px;
+}
+
+.btn--white--logo {
+    background-image: url("../../assets/image/orangBtn.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 288px;
+    height: 78px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform:  rotate(90deg);
+    margin-top: 50px;
+ }
+
+
+.logoWhite {
+    transform: rotate(-90deg);
+}
+
+@media only screen  and (max-width: 1550px) {
+    .white--block--text {
+        display: flex;
+        position: absolute;
+        left: 10%;
+        top: 10%;
+    }
+    .white--subTitle {
+        margin-left: 95px;
+    }
+}
