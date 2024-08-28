@@ -1,0 +1,82 @@
+.footer--wrapper {
+    background-image: url("../../assets/image/Footerpng.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    min-height: 100vh; /* Убедитесь, что контейнер имеет минимальную высоту */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.footer--wrapper-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer--content {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.footer--nav {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    justify-content: center;
+}
+
+.footer--content--nav{
+    background-color: #EAEAEA;
+    padding: 30px 40px;
+    box-sizing: border-box;
+    border-radius: 60px;
+    margin-left: 16px;
+    margin-right: 16px;
+    max-width: 100%;
+
+}
+
+.footer--nav li {
+    font-family: "Golos Text", sans-serif;
+    font-size: 24px;
+    color: #9D9DA3;
+    margin-left: 16px;
+    cursor: pointer;
+}
+
+.footer--contacts {
+    text-align: center;
+    margin-top: 54px;
+    font-family: "Goldman", Regular;
+    font-size: 34px;
+}
+.footer--bottom--content {
+    font-family: "Golos Text", sans-serif;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 2%;
+    color: #5F5F5F;
+}
+
+.footer--bottom--oneTitle {
+    margin-left: 20px;
+}
+.footer--bottom--three {
+    margin-right: 20px;
+}
+
+.footer--bottom--link {
+    border: 1px solid #EAEAEA;
+    padding: 16px 30px;
+    border-radius: 40px;
+    color: #5F5F5F;
+    text-decoration: none;
+}
