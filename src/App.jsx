@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import LazyLoadComponent from "./components/LazyPlaceholder/LazyLoadComponent";
+import Footer from "./components/Footer/Footer";
 const BlueBlock = lazy(() => import("./components/BlueBlock/BlueBlock"));
 
 const Carousel = lazy(() => import("./components/Carousel/Carousel"));
@@ -31,6 +32,7 @@ function App(props) {
         <LazyLoadComponent component={Carousel} />
         <LazyLoadComponent component={TitleAixLand} />
         <LazyLoadComponent component={ContactAixLand} />
+        <Footer />
       </div>
     </>
   );
