@@ -1,8 +1,15 @@
 .wrapper--romb {
     width: 1920px;
-    margin: 200px auto auto;
+    margin: 40px auto auto;
     position: relative;
  }
+
+.backgroundImageRombik {
+    background-image: url("../../assets/image/RombikImageBackround.svg");
+    background-repeat: no-repeat;
+    background-size: 1700px ;
+    background-position: center bottom 40px;
+}
 
 .headerDugaRomb {
     width: 100%;
@@ -58,16 +65,17 @@
 }
 
 .hexStepCard--wrapper > :nth-child(1) {
-    transform: translateX(44.5%)  ;
+     transform: translateY(22%) translateX(44.5%)  ;
 
 }
 .hexStepCard--wrapper > :nth-child(2) {
-    transform: translateX(-44.5%)  ;
+
+    transform: translateY(22%) translateX(-44.5%)  ;
 }
 
 .hexStepCard--wrapper > :nth-child(3) {
     grid-column: 1 / -1;
-    margin-top: -120px;
+
 }
 
 .hexStepCard--wrapper > :nth-child(4) {

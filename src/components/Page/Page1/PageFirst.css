@@ -15,14 +15,15 @@
 }
 
 .pageFirstTitle {
+    font-family: "Goldman";
+    font-weight: bold;
     text-align: center;
     font-size: 32px;
     line-height: 32px;
-    font-weight: 700;
-    width: 369px;
+     width: 369px;
     margin: 16px auto;
     text-transform: uppercase;
 }
 .pageFirstTitle > span {
-    color: #79ADE4;
+    color: #21B48C;
 }

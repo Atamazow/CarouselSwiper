@@ -16,6 +16,7 @@ const World = lazy(() => import("./components/World/World"));
 const PageFirst = lazy(() => import("./components/Page/Page1/PageFirst"));
 const Page4 = lazy(() => import("./components/Page/Page4/Page4"));
 const Video = lazy(() => import("./components/Video/Video"));
+const SecondPage = lazy(() => import("./components/Page/Page2/SecondPage"));
 
 function App(props) {
   return (
@@ -26,6 +27,7 @@ function App(props) {
         <LazyLoadComponent component={PageFirst} />
         <LazyLoadComponent component={Video} />
         <LazyLoadComponent component={BlueBlock} />
+        <LazyLoadComponent component={SecondPage} />
         <LazyLoadComponent component={Rombik} />
         <LazyLoadComponent component={Page4} />
         <LazyLoadComponent component={Carousel} />

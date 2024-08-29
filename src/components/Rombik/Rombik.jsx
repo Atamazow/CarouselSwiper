@@ -39,34 +39,28 @@ const cardRombik = [
   },
 ];
 
-const imageRombik = [
-  { id: 1, image: imageRomb },
-  { id: 2, image: imageRomb },
-  { id: 3, image: imageRomb },
-  { id: 4, image: imageRomb },
-  { id: 5, image: imageRomb },
-];
-
 const Rombik = () => {
   return (
     <div className="wrapper--romb">
-      <div className="hexStepCard--wrapper">
-        {cardRombik.map((card, index) => (
-          <div className="card-block" key={index}>
-            <img
-              className={`image--romb image--romb-${index + 1}`}
-              src={card.image}
-              alt=""
-            />
-            <div>
-              <img className="subCartImage" src={subCart} alt="" />
+      <div className="backgroundImageRombik">
+        <div className="hexStepCard--wrapper">
+          {cardRombik.map((card, index) => (
+            <div className="card-block" key={index}>
+              <img
+                className={`image--romb image--romb-${index + 1}`}
+                src={card.image}
+                alt=""
+              />
+              <div>
+                <img className="subCartImage" src={subCart} alt="" />
+              </div>
+              <div className="cardRomb--textTitle">
+                <div className="title--cardRombik">{card.title}</div>
+                <div className="text--cardRombik">{card.text}</div>
+              </div>
             </div>
-            <div className="cardRomb--textTitle">
-              <div className="title--cardRombik">{card.title}</div>
-              <div className="text--cardRombik">{card.text}</div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

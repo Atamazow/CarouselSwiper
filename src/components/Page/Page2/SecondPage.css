@@ -1,10 +1,10 @@
-.wrapper--fourth--page {
+.wrapper--page--second {
     border: 1px solid  #D9D9D9;
     width:175px;
     height: 90px;
     padding: 10px;
     display: flex;
-    margin: 200px auto 0;
+    margin: 200px auto 16px auto;
     border-radius: 80px;
 
 }
@@ -14,16 +14,16 @@
     margin: auto;
 }
 
-.page4Title {
+.pageSecondTitle {
     font-family: "Goldman";
-    text-transform: uppercase;
+    font-weight: bold;
     text-align: center;
     font-size: 32px;
-    line-height: 33px;
-    font-weight: Bold;
-     width: 448px;
+    line-height: 32px;
+    width: 417px;
     margin: 16px auto;
+    text-transform: uppercase;
 }
-.page4Title > span {
+.pageSecondTitle > span {
     color: #21B48C;
 }
