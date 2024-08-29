@@ -1,5 +1,7 @@
 .titleAixland--wrapper {
-    margin-bottom: 65px;
+     display: flex;
+     justify-content: center;
+     max-width: 100%;
 }
 
 .titleAixland--wrapper h1 {

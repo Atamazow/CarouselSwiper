@@ -18,15 +18,5 @@ code {
     monospace;
 }
 
-.App-wrapper {
-    width: 1920px;
-    margin: auto;
- }
 
 
-@media (max-width: 1550px) {
-    .App-wrapper {
-        width: 100%;
-        margin: 0;
-    }
-}

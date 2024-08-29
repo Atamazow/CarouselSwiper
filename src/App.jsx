@@ -22,7 +22,6 @@ function App(props) {
     <>
       <div className="App-wrapper">
         <Header />
-
         <LazyLoadComponent component={World} />
         <LazyLoadComponent component={PageFirst} />
         <LazyLoadComponent component={Video} />

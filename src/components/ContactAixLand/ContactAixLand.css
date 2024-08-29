@@ -1,27 +1,31 @@
 .contact-form-section {
-
     border-radius: 24px;
-    width: 650px;
-    margin: -120px auto;
-    background: url("../../assets/image/ContactAixlandRamka.svg");
-    background-size: cover;
- }
+    width: 770px;
+    height: 567px;
+    margin: auto;
+    background: no-repeat  center center url("../../assets/image/ContactAixlandRamka.svg") ;
+    padding: 42px 60px 28px 60px;
+    background-size: contain;
+
+    box-sizing: border-box;
+
+}
 
 .contact-form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 42px 60px 28px 60px;  ;
 }
 
 .contactInput.message {
-    height: 170px;
+    height: 150px;
+    max-height: 170px; /* Предотвращает превышение высоты */
+    min-height: 60px;
+     overflow: auto; /* Добавляет полосу прокрутки, если содержимое превышает высоту */
+    flex-shrink: 0;
 }
 
-.contactInput.message::placeholder {
-
-}
 
 .contact-form-section .section-header {
     display: flex;
@@ -52,6 +56,34 @@
      margin: 14px 0;
     color: #25282A;
     font-size: 17px;
-
 }
 
+.text--contact {
+    text-align: center;
+    color: #9D9DA3;
+    font-size: 18px;
+    font-family: "Golos Text";
+    width: 308px;
+    margin: 0 auto;
+}
+
+.contact--btn {
+    background-image: url("../../assets/image/orangBtn.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    width: 288px;
+    margin: 20px auto;
+    height: 78px;
+    cursor: pointer;
+}
+
+.content--title--btn {
+    font-size: 20px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

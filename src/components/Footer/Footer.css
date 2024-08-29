@@ -1,15 +1,19 @@
 .footer--wrapper {
+    margin-top: 60px;
+}
+
+.footer {
     background-image: url("../../assets/image/Footerpng.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
-    min-height: 100vh; /* Убедитесь, что контейнер имеет минимальную высоту */
+    height: 959px; /* Убедитесь, что контейнер имеет минимальную высоту */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     position: relative;
-}
+ }
 
 .footer--wrapper-content {
     display: flex;
@@ -58,11 +62,13 @@
 }
 .footer--bottom--content {
     font-family: "Golos Text", sans-serif;
+
     display: flex;
+    align-items: center;
     width: 100%;
     justify-content: space-between;
     position: absolute;
-    bottom: 2%;
+    bottom: 5px;
     color: #5F5F5F;
 }
 
@@ -79,4 +85,8 @@
     border-radius: 40px;
     color: #5F5F5F;
     text-decoration: none;
+}
+
+@media only  screen and  (max-width: 1550px) {
+
 }

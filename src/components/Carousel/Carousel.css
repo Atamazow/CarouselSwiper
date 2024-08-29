@@ -1,7 +1,7 @@
 .carousel-wrapper {
     position: relative;
     width: 1920px;
-    margin-top: 250px  ;
+    margin: 250px auto  ;
     z-index: 1;
 }
 
@@ -56,27 +56,30 @@
     display: flex;
     justify-content: center;
 
+
 }
 
 .carousel-item.right-1 {
     opacity: 0.4;
     z-index: 1;
-    transform: translateX(-10%) translateY(60%) rotate(35deg);
+    transform-origin: center bottom;
+    transform: translateX(-31%) translateY(72%) rotate(21deg);
+    width: 350px;
 }
 
+.carousel-item.left-1 {
+    opacity: 0.4;
+    z-index: 1;
+    transform-origin: center bottom;
+    transform: translateX(49%) translateY(72%) rotate(-25deg);
+    width: 350px;
+}
 .carousel-item.right-2 {
     opacity: 0.6;
     z-index: 1;
     transform: translateY(100%);
     display: none;
 }
-
-.carousel-item.left-1 {
-    opacity: 0.4;
-    z-index: 1;
-    transform: translateX(10%) translateY(60%) rotate(-35deg);
-}
-
 .carousel-item.left-2 {
     opacity: 0.6;
     z-index: 0;

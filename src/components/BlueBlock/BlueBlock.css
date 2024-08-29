@@ -1,7 +1,10 @@
 .wrapper--blue--block {
     background-image: url("../../assets/image/blue.svg");
     height: 545px;
-     background-size: cover;
+    background-size: cover;
+    width: 1920px;
+    max-width: 100%;
+    margin: auto;
     background-position: center;
     position: relative;
     display: flex;
@@ -89,6 +92,9 @@
         position: absolute;
         left: 10%;
         top: 10%;
+    }
+    .wrapper--blue--block {
+        margin-top: -24px;
     }
     .white--subTitle {
         margin-left: 95px;
