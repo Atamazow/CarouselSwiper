@@ -24,7 +24,7 @@
 }
 
 .card-block {
-    background-image: url("../../assets/carouselImage/CardRomb.svg");
+    background-image: url("../../assets/image/RedRomb.svg");
     background-size: cover;
     position: relative;
     width: 500px;
@@ -35,6 +35,10 @@
 
 
 .subCartImage {
+    background-image: url("../../assets/image/RedBlockRomb.svg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100px;
     height: 100px;
     position: absolute;
@@ -42,6 +46,12 @@
     top: 20%;
     transform: translate(-50%);
     z-index: -1;
+}
+
+.subCartImage div {
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
 }
 
 .cardRomb--textTitle {
@@ -79,11 +89,11 @@
 }
 
 .hexStepCard--wrapper > :nth-child(4) {
-    transform: translateX(44.5%) translateY(-20%);
+    transform: translateX(44.5%) translateY(-22%);
  }
 
 .hexStepCard--wrapper > :nth-child(5) {
-    transform: translateX(-44.5%) translateY(-20%);
+    transform: translateX(-44.5%) translateY(-22%);
 }
 
 

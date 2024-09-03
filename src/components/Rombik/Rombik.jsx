@@ -1,6 +1,5 @@
 import React from "react";
-import subCart from "../../assets/carouselImage/Subtract.svg";
-import headerRombDuga from "../../assets/carouselImage/headerDugaRomb.svg";
+import subCart from "../../assets/image/RedBlockRomb.svg";
 import imageRomb from "../../assets/image/Subtract.png";
 import "./HoverImageRomb.css";
 import "./Rombik.css";
@@ -52,7 +51,9 @@ const Rombik = () => {
                 alt=""
               />
               <div>
-                <img className="subCartImage" src={subCart} alt="" />
+                <div className="subCartImage" alt="">
+                  <div>{card.id}</div>
+                </div>
               </div>
               <div className="cardRomb--textTitle">
                 <div className="title--cardRombik">{card.title}</div>
