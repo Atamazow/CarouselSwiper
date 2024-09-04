@@ -82,10 +82,7 @@
 
 }
 
-
-
-
-@media screen and (max-width: 1550px){
+@media screen and (max-width: 1550px) {
     .hexStepCard--wrapper {
         display: grid;
         grid-template-columns: repeat(2, 370px);
@@ -131,32 +128,40 @@
 
 }
 
-@media screen and (max-width: 1440px){
-    .hexStepCard--wrapper {
-        display: grid;
-        grid-template-columns: repeat(2, 370px);
-        grid-template-rows: repeat(3, 320px);
-        justify-items: center;
-        align-items: center;
-    }
+@media screen and (max-width: 1440px) {
+
     .wrapper--romb {
         margin: 200px auto auto;
     }
+}
+
+@media screen and (max-width: 1024px) {
+    .hexStepCard--wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 340px);
+        grid-template-rows: repeat(3, 295px);
+        justify-items: center;
+        align-items: center;
+    }
     .card-block {
-        width: 350px;
-        height: 395px;
+        width: 330px;
+        height: 370px;
     }
     .subCartImage {
+        width: 60px;
+        height: 60px;
         position: absolute;
         left: 50%;
-        top: 10%;
+        top: 15%;
         transform: translate(-50%);
     }
     .title--cardRombik {
-        font-size: 32px;
+
+        font-size: 25px;
         line-height: 24px;
     }
     .text--cardRombik {
+        margin-top: 16px;
         font-size: 10px;
     }
     .cardRomb--textTitle {

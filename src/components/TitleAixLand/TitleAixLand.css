@@ -15,6 +15,12 @@
     color: #21B48C;
 }
 
+@media screen and (max-width: 1960px) {
+    .titleAixland--wrapper h1 {
+        font-size: 235px;
+    }
+}
+
 @media screen and (max-width: 1550px) {
     .titleAixland--wrapper h1 {
         font-size: 204px;
