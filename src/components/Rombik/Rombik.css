@@ -1,25 +1,25 @@
 .wrapper--romb {
-    width: 1920px;
     margin: 40px auto auto;
     position: relative;
- }
+}
 
 .backgroundImageRombik {
     background-image: url("../../assets/image/RombikImageBackround.svg");
     background-repeat: no-repeat;
-    background-size: 1700px ;
-    background-position: center bottom 40px;
+    background-size: contain ;
+    background-position: center center;
 }
 
 .headerDugaRomb {
     width: 100%;
- }
+}
 
 .hexStepCard--wrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 520px);
+    grid-template-rows: repeat(3, 440px);
     justify-items: center;
+    justify-content: center;
     align-items: center;
 }
 
@@ -39,6 +39,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: cover;
     width: 100px;
     height: 100px;
     position: absolute;
@@ -66,41 +67,79 @@
 .title--cardRombik {
     line-height: 35px;
     font-size: 40px;
+    font-family: "Goldman", Regular;
 }
 
 .text--cardRombik {
     font-size: 16px;
-    color: #898989;
+    color: #424344;
     margin-top: 16px;
 }
 
-.hexStepCard--wrapper > :nth-child(1) {
-     transform: translateY(22%) translateX(44.5%)  ;
-
-}
-.hexStepCard--wrapper > :nth-child(2) {
-
-    transform: translateY(22%) translateX(-44.5%)  ;
-}
 
 .hexStepCard--wrapper > :nth-child(3) {
     grid-column: 1 / -1;
 
 }
 
-.hexStepCard--wrapper > :nth-child(4) {
-    transform: translateX(44.5%) translateY(-22%);
- }
-
-.hexStepCard--wrapper > :nth-child(5) {
-    transform: translateX(-44.5%) translateY(-22%);
-}
 
 
 
 @media screen and (max-width: 1550px){
+    .hexStepCard--wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 370px);
+        grid-template-rows: repeat(3, 320px);
+        justify-items: center;
+        align-items: center;
+    }
     .wrapper--romb {
-        width: 1500px;
+         margin: 200px auto auto;
+    }
+    .card-block {
+        width: 350px;
+        height: 395px;
+    }
+    .subCartImage {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        left: 50%;
+        top: 10%;
+        transform: translate(-50%);
+    }
+    .title--cardRombik {
+
+        font-size: 25px;
+        line-height: 24px;
+    }
+    .text--cardRombik {
+        margin-top: 16px;
+        font-size: 10px;
+    }
+    .cardRomb--textTitle {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%);
+        text-align: center;
+    }
+
+    .headerDugaRomb {
+        margin-left: 0;
+    }
+
+}
+
+@media screen and (max-width: 1440px){
+    .hexStepCard--wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 370px);
+        grid-template-rows: repeat(3, 320px);
+        justify-items: center;
+        align-items: center;
+    }
+    .wrapper--romb {
         margin: 200px auto auto;
     }
     .card-block {
@@ -108,14 +147,13 @@
         height: 395px;
     }
     .subCartImage {
-        width: 50px;
         position: absolute;
         left: 50%;
         top: 10%;
         transform: translate(-50%);
     }
     .title--cardRombik {
-        font-size: 25px;
+        font-size: 32px;
         line-height: 24px;
     }
     .text--cardRombik {
@@ -128,28 +166,7 @@
         transform: translate(-50%);
         text-align: center;
     }
-    .hexStepCard--wrapper > :nth-child(1) {
-        transform: translateX(55%) translateY(-25%);
 
-    }
-
-    .hexStepCard--wrapper > :nth-child(2) {
-        transform: translateX(-55%) translateY(-25%);
-    }
-
-    .hexStepCard--wrapper > :nth-child(3) {
-        grid-column: 1 / -1;
-        transform:  translateY(-15%);
-
-    }
-
-    .hexStepCard--wrapper > :nth-child(4) {
-        transform: translateX(55%) translateY(-35%);
-    }
-
-    .hexStepCard--wrapper > :nth-child(5) {
-        transform: translateX(-55%) translateY(-35%);
-    }
     .headerDugaRomb {
         margin-left: 0;
     }

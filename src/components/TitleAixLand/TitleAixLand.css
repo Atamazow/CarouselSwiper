@@ -12,11 +12,17 @@
 }
 
 .titleAixland--wrapper h1 span {
-    color: #E03C31;
+    color: #21B48C;
 }
 
 @media screen and (max-width: 1550px) {
     .titleAixland--wrapper h1 {
-        font-size: 207px;
+        font-size: 204px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .titleAixland--wrapper h1 {
+        font-size: 193px;
     }
 }

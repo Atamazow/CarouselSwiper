@@ -23,16 +23,18 @@ function App(props) {
     <>
       <div className="App-wrapper">
         <Header />
-        <LazyLoadComponent component={World} />
-        <LazyLoadComponent component={PageFirst} />
-        <LazyLoadComponent component={Video} />
-        <LazyLoadComponent component={BlueBlock} />
-        <LazyLoadComponent component={SecondPage} />
-        <LazyLoadComponent component={Rombik} />
-        <LazyLoadComponent component={Page4} />
-        <LazyLoadComponent component={Carousel} />
-        <LazyLoadComponent component={TitleAixLand} />
-        <LazyLoadComponent component={ContactAixLand} />
+        <div className="main-App">
+          <LazyLoadComponent component={World} />
+          <LazyLoadComponent component={PageFirst} />
+          <LazyLoadComponent component={Video} />
+          <LazyLoadComponent component={BlueBlock} />
+          <LazyLoadComponent component={SecondPage} />
+          <LazyLoadComponent component={Rombik} />
+          <LazyLoadComponent component={Page4} />
+          <LazyLoadComponent component={Carousel} />
+          <LazyLoadComponent component={TitleAixLand} />
+          <LazyLoadComponent component={ContactAixLand} />
+        </div>
         <Footer />
       </div>
     </>

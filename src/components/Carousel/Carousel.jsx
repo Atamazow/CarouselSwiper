@@ -3,7 +3,7 @@ import image1 from "../../assets/carouselImage/Frame 427320831.png";
 import image2 from "../../assets/carouselImage/Frame 427320833.png";
 import image3 from "../../assets/carouselImage/Frame 427320832.png";
 import image4 from "../../assets/carouselImage/apartment4.png";
-import borderDuga from "../../assets/image/SliderBorder.svg";
+import borderDuga from "../../assets/carouselImage/duga.svg";
 import "./Carousel.css"; // Подключаем CSS файл
 import "./Border.css";
 const slides = [
@@ -213,7 +213,9 @@ const Carousel = () => {
             })}
           </div>
           <div className="container">
-            <img className="imageDuga" src={borderDuga} alt="" />
+            <div>
+              <img className="imageDuga" src={borderDuga} alt="" />
+            </div>
             <div className="text-navigation-container">
               <div className="navigation">
                 <button
@@ -235,7 +237,7 @@ const Carousel = () => {
             </div>
             <div className="wrapper--carousel--textBtn">
               <div className="carousel--subtitle">
-                EXAMPLE OF HOW <br /> <span>DIGITIZATION WORKS</span>
+                Multi-story houses <span>houses</span>
               </div>
               <div className="carousel--text">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean

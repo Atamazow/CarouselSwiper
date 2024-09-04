@@ -2,7 +2,7 @@
     border: 1px solid  #D9D9D9;
     width:175px;
     height: 90px;
-    padding: 10px;
+
     display: flex;
     margin: 40px auto 0;
     border-radius: 80px;
@@ -10,8 +10,9 @@
 }
 
 .imagePage {
-    width: 100px;
+    width: 82px;
     margin: auto;
+    padding: 15px 10px;
 }
 
 .pageFirstTitle {
