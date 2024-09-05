@@ -1,5 +1,6 @@
 .carousel-wrapper {
     position: relative;
+    max-width: 100%;
     width: 1920px;
     margin: 250px auto 0 auto;
     z-index: 1;
@@ -8,7 +9,8 @@
 .carousel-container {
     max-width: 100%;
     position: absolute;
-    left: -28%;
+    left: 5%;
+    transform: translate(-50%,-50%);
     top: -65%;
 }
 
@@ -51,7 +53,7 @@
 .carousel-item.center {
     opacity: 1;
     z-index: 2;
-    transform: translateY(50%);
+    transform: translateY(55%);
     display: flex;
     justify-content: center;
 }
@@ -60,7 +62,7 @@
     opacity: 0.4;
     z-index: 1;
     transform-origin: center bottom;
-    transform: translateX(-31%) translateY(72%) rotate(21deg);
+    transform: translateX(26%) translateY(79%) rotate(21deg);
     width: 350px;
 }
 
@@ -68,7 +70,7 @@
     opacity: 0.4;
     z-index: 1;
     transform-origin: center bottom;
-    transform: translateX(49%) translateY(72%) rotate(-25deg);
+    transform: translateX(-11%) translateY(79%)  rotate(-25deg);
     width: 350px;
 }
 .carousel-item.right-2 {
@@ -88,7 +90,6 @@
     z-index: 1;
 }
 .carousel-item {
-    transform: translateY(50%);
     width: 400px;
 }
 
@@ -110,7 +111,7 @@
     font-size: 20px;
     position: absolute;
     bottom: -8%;
-    right: 45%;
+    right: 46%;
     text-align: center;
     transform: translate(-55%, -50%);
 }
@@ -127,20 +128,29 @@
     display: none;
 }
 
-@media screen and (max-width: 1550px) {
+@media screen and (max-width: 1920px) {
+    .item-alt-text {
+        position: absolute;
+        bottom: -8%;
+        right: 51%;
+        transform: translate(-50%,-50%);
+    }
+}
+
+@media screen and (max-width: 1536px) {
     .carousel-wrapper {
         max-width: 100%;
         width: 1500px;
         margin-top: 250px;
     }
 
-    .carousel-item {
-        width: 380px;
+    .carousel-item img {
+        width: 330px;
     }
     .carousel-container {
         position: absolute;
-        left: -50%;
-        top: -65%;
+        left: -7%;
+        top: -50%;
         transform: translate(-39%, -50%);
     }
     .item-alt-text {
@@ -149,10 +159,25 @@
         font-size: 20px;
         position: absolute;
         bottom: -16%;
-        right: 47%;
+        right: 51.5%;
         transform: translate(-50%,-50%);
     }
+
+    .carousel-item.center {
+        transform: translateY(55%);
+    }
+
+    .carousel-item.right-1 {
+        transform: translateX(20%) translateY(58%) rotate(21deg);
+        width: 350px;
+    }
+
+    .carousel-item.left-1 {
+        transform: translateX(-2%) translateY(54%)  rotate(-25deg);
+     }
 }
+
+
 
 @media screen and (max-width: 1440px) {
     .carousel-wrapper {
@@ -161,33 +186,30 @@
     }
     .carousel-container {
         position: absolute;
-        left: -75%;
+        left: -22%;
         top: -52%;
+        transform: translate(-50%,-20%);
     }
     .carousel-item img  {
         width: 330px;
     }
-    .item-alt-text {
-        position: absolute;
-        right: 47%;
-    }
+
     .carousel-item.right-1 {
         opacity: 0.4;
         z-index: 1;
         transform-origin: center bottom;
-        transform: translateX(-64%) translateY(50%) rotate(21deg);
-        width: 300px;
-    }
+        transform: translateX(24%) translateY(60%) rotate(21deg);
+     }
 
     .carousel-item.left-1 {
         opacity: 0.4;
         z-index: 1;
         transform-origin: center bottom;
-        transform: translateX(95%) translateY(53%) rotate(-21deg);
+        transform: translateX(13%) translateY(70%) rotate(-21deg);
         width: 300px;
     }
     .carousel-item.center {
-        transform:   translateY(55%)
+        transform: translateY(59%)
     }
     .item-alt-text {
         z-index: 2;
@@ -195,7 +217,7 @@
         font-size: 20px;
         position: absolute;
         bottom: -15.5%;
-        right: 42%;
+        right: 46.3%;
         transform: translate(-50%,-50%);
     }
 
@@ -236,8 +258,8 @@
     }
     .carousel-container {
         position: absolute;
-        left: -75%;
-        top: -52%;
+        left: -38%;
+        top: -38%;
     }
     .carousel-item img  {
         width: 280px;
@@ -250,15 +272,14 @@
         opacity: 0.4;
         z-index: 1;
         transform-origin: center bottom;
-        transform: translateX(-64%) translateY(50%) rotate(21deg);
-        width: 300px;
-    }
+        transform: translateX(15%) translateY(55%) rotate(20deg);
+     }
 
     .carousel-item.left-1 {
         opacity: 0.4;
         z-index: 1;
         transform-origin: center bottom;
-        transform: translateX(95%) translateY(53%) rotate(-21deg);
+        transform: translateX(23%) translateY(53%) rotate(-21deg);
         width: 300px;
     }
     .carousel-item.center {
@@ -270,7 +291,7 @@
         font-size: 20px;
         position: absolute;
         bottom: -15.5%;
-        right: 42%;
+        right: 45.6%;
         transform: translate(-50%,-50%);
     }
 }

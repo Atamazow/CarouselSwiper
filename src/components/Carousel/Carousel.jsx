@@ -34,7 +34,7 @@ const Carousel = () => {
   const [dragStartX, setDragStartX] = useState(null);
   const [isDisabledStap, setIsDisabledStap] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
-  const radius = 1350; // радиус окружности
+  const radius = 720; // радиус окружности
   const itemAngle = 360 / slides.length; // угол, охватывающий один элемент
   const Dragging = useRef(false);
   const lastMoveTime = useRef(0);
@@ -237,7 +237,7 @@ const Carousel = () => {
             </div>
             <div className="wrapper--carousel--textBtn">
               <div className="carousel--subtitle">
-                Multi-story houses <span>houses</span>
+                Multi-story houses <br /> <span>houses</span>
               </div>
               <div className="carousel--text">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
