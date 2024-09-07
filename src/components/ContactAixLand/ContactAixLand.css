@@ -6,9 +6,7 @@
     background: no-repeat  center center url("../../assets/image/ContactAixlandRamka.svg") ;
     padding: 42px 60px 28px 60px;
     background-size: contain;
-
     box-sizing: border-box;
-
 }
 
 .contact-form {
@@ -86,4 +84,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-form-section {
+        background:none;
+        width: 100%;
+     }
+    .contact-form-section .contact-form .form-group .contactInput {
+        width: 700px;
+        max-width: 100%;
+    }
+    .contact--btn {
+
+    }
 }
