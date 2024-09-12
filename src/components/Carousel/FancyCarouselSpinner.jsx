@@ -1,44 +1,65 @@
-import React, { useState } from "react";
-import "./FancyCarousel.css";
+import React, { useEffect, useState } from "react";
+import "./Carousel.css";
 import borderDuga from "../../assets/carouselImage/duga.svg";
+import CarouselHeaderDuga from "../../assets/carouselImage/CarouselHeaderDuga.svg";
 import "./Border.css";
-
-export const FancyCarouselSpinner = ({
-  images,
-  setFocusElement = () => {},
-  carouselRadius = 300,
-  focusElementStyling = {},
-  autoRotateTime = 0,
-}) => {
+import image1 from "../../assets/spinnerImage/image1.png";
+import image2 from "../../assets/spinnerImage/image2.png";
+import image3 from "../../assets/spinnerImage/image3.png";
+import image4 from "../../assets/spinnerImage/image4.png";
+import image5 from "../../assets/spinnerImage/image5.png";
+import image6 from "../../assets/spinnerImage/image6.png";
+import image7 from "../../assets/spinnerImage/image7.png";
+import image8 from "../../assets/spinnerImage/image8.png";
+import image9 from "../../assets/spinnerImage/image9.png";
+import image10 from "../../assets/spinnerImage/image10.png";
+import image11 from "../../assets/spinnerImage/image11.png";
+const images = [
+  { id: 1, src: image1, alt: "Carousel" },
+  { id: 2, src: image2, alt: "Carousel" },
+  { id: 3, src: image3, alt: "Carousel" },
+  { id: 4, src: image4, alt: "Carousel" },
+  { id: 5, src: image5, alt: "Carousel" },
+  { id: 6, src: image6, alt: "Carousel" },
+  { id: 7, src: image7, alt: "Carousel" },
+  { id: 8, src: image8, alt: "Carousel" },
+  { id: 9, src: image9, alt: "Carousel" },
+  { id: 10, src: image10, alt: "Carousel" },
+  { id: 11, src: image11, alt: "Carousel" },
+  { id: 12, src: image2, alt: "Carousel" },
+  { id: 13, src: image4, alt: "Carousel" },
+  { id: 14, src: image2, alt: "Carousel" },
+  { id: 15, src: image3, alt: "Carousel" },
+  // другие изображения...
+];
+export const Spinner = ({ autoRotateTime = 0 }) => {
   const [carousel, setCarousel] = useState({
     carouselOrietation: 0,
     elementOrientation: 0,
     focusElement: 0, // Добавляем `focusElement` для отслеживания центрального элемента
   });
   const [isDisabledStap] = useState(false);
-  let number = 200;
-  let transitionTime = 1.5;
+  let carouselRadius = 1200;
+  let number = 300;
   let navigationButtonRadius = 32.5;
   const noOfImages = images.length;
   const theta = 360 / noOfImages;
 
-  // Обновляем центральный элемент при вращении вправо
   const rotateRight = () => {
     setCarousel((prev) => ({
       ...prev,
       carouselOrietation: prev.carouselOrietation + theta,
       elementOrientation: prev.elementOrientation - theta,
-      focusElement: (prev.focusElement + 1) % noOfImages, // Обновляем индекс центрального элемента
+      focusElement: (prev.focusElement + 1) % noOfImages,
     }));
   };
 
-  // Обновляем центральный элемент при вращении влево
   const rotateLeft = () => {
     setCarousel((prev) => ({
       ...prev,
       carouselOrietation: prev.carouselOrietation - theta,
       elementOrientation: prev.elementOrientation + theta,
-      focusElement: (prev.focusElement - 1 + noOfImages) % noOfImages, // Обновляем индекс центрального элемента
+      focusElement: (prev.focusElement - 1 + noOfImages) % noOfImages,
     }));
   };
 
@@ -63,20 +84,58 @@ export const FancyCarouselSpinner = ({
       (item[1] - centerCoordinate) * Math.cos(totalDeviation),
   ]);
 
-  // Присваиваем классы: `center`, `right-1`, `left-1`
   const getClassNames = (index) => {
-    const topIndex = carousel.focusElement; // Центральный элемент определяется по `focusElement`
+    const topIndex = carousel.focusElement;
     const relativeIndex = (index - topIndex + images.length) % images.length;
 
-    if (index === topIndex) return "center"; // Центральный элемент
-    if (relativeIndex === 1) return "right-1"; // Первый справа
-    if (relativeIndex === images.length - 1) return "left-1"; // Первый слева
+    if (index === topIndex) return "center";
+    if (relativeIndex === 1) return "right-1";
+    if (relativeIndex === 2) return "right-2";
+    if (relativeIndex === images.length - 1) return "left-1";
+    if (relativeIndex === images.length - 2) return "left-2"; // Второй слева от центра
 
-    return "hidden"; // Остальные элементы скрыты
+    return "hidden";
   };
+  useEffect(() => {
+    let startTouchX = 0;
+    let endTouchX = 0;
+
+    const spinnerElement = document.querySelector(
+      ".fancy-carousel-wrapper-element",
+    );
+
+    const touchStartHandler = (event) => {
+      startTouchX = event.changedTouches[0].pageX;
+    };
+
+    const touchEndHandler = (event) => {
+      endTouchX = event.changedTouches[0].pageX;
+      if (endTouchX > startTouchX) {
+        rotateRight();
+      }
+      if (endTouchX < startTouchX) {
+        rotateLeft();
+      }
+    };
+
+    if (spinnerElement) {
+      spinnerElement.addEventListener("touchstart", touchStartHandler);
+      spinnerElement.addEventListener("touchend", touchEndHandler);
+    }
+
+    return () => {
+      if (spinnerElement) {
+        spinnerElement.removeEventListener("touchstart", touchStartHandler);
+        spinnerElement.removeEventListener("touchend", touchEndHandler);
+      }
+    };
+  }, []);
 
   return (
     <div>
+      <div className="wrapper--header--duga">
+        <img src={CarouselHeaderDuga} alt="" />
+      </div>
       <div className="fancy-carousel-wrapper-element">
         <div
           className={`fancy-carousel-navigators ${
@@ -84,45 +143,48 @@ export const FancyCarouselSpinner = ({
           }`}
           style={{
             gap: `${carouselRadius * 2}px`,
-            marginLeft: `-${navigationButtonRadius * 1.8}px`,
           }}
         ></div>
         <div className="fancy-carousel-border">
           <div
             className="fancy-carousel"
             style={{
-              transform: `rotate(${carousel.carouselOrietation}deg)`, // Вращение всего контейнера карусели
+              transform: `rotate(${carousel.carouselOrietation}deg)`,
               height: `${carouselRadius * 2}px`,
               width: `${carouselRadius * 2}px`,
             }}
           >
-            {images.map(({ src }, index) => (
-              <div
-                className={`fancy-carousel-element ${getClassNames(index)}`} // Присваиваем класс "center"
-                key={index}
-                style={{
-                  width: `${number * 2}px`,
-                  height: `${number * 2}px`,
-                  left: `${rotatedCoordinates[index][0]}px`,
-                  bottom: `${rotatedCoordinates[index][1]}px`,
-                  transition: `${transitionTime}`,
-                  // Фиксируем блок, чтобы он не вращался
-                  transform: `rotate(${-carousel.carouselOrietation}deg)`,
-                }}
-              >
-                <img
-                  className="fancy-carousel-image"
-                  src={src}
+            {images.map(({ src }, index) => {
+              const className = getClassNames(index);
+              let additionalRotation = 0;
+              if (className === "left-1") {
+                additionalRotation = 24; // Угол для левого
+              } else if (className === "right-1") {
+                additionalRotation = -24; // Угол для правого
+              }
+
+              return (
+                <div
+                  className={`fancy-carousel-element ${className}`}
+                  key={index}
                   style={{
-                    width: index === carousel.focusElement ? `500px` : `300px`,
-                    height: `${number * 2}px`,
-                    transition: `${transitionTime}`,
-                    // Убираем любое вращение для самих изображений
-                    transform: "none",
+                    left: `${rotatedCoordinates[index][0]}px`,
+                    bottom: `${rotatedCoordinates[index][1]}px`,
+
+                    // Применяем дополнительный rotate для left-1 и right-1
+                    transform: `rotate(${-carousel.carouselOrietation}deg) rotate(${additionalRotation}deg)`,
                   }}
-                />
-              </div>
-            ))}
+                >
+                  <img
+                    className="fancy-carousel-image"
+                    src={src}
+                    style={{
+                      transform: "none",
+                    }}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -1,8 +1,87 @@
-.fancy-carousel-border {
-    height: 25vh;
-    overflow: hidden;
+.fancy-carousel-wrapper-element {
+    position: relative;
+     overflow: hidden;
+    height: 450px;
+    width: 100%; /* Ширина контейнера */
+    overflow: hidden; /* Скрываем все элементы, которые выходят за пределы контейнера */
+    display: flex;
+    justify-content: center;
+    margin-bottom: -130px;
+ }
+.fancy-carousel-navigators {
+    position: absolute;
+    top: 50%;
 }
 
-.fancy-carousel {
-    margin-top: 120px;
+/*.fancy-carousel-element.right-1 {*/
+/*  transform:  translateY(20%) translateX(-20%) rotate(-380deg) !important;*/
+/*}*/
+
+/*.fancy-carousel-element.left-1 {*/
+/*    transform:  translateY(20%) translateX(20%) rotate(-333deg) !important;*/
+/*}*/
+
+.fancy-carousel-element.right-1 img,.fancy-carousel-element.left-1 img {
+    opacity: 0.5;
+    width: 400px;
+ }
+
+.fancy-carousel-element.right-2 ,.fancy-carousel-element.left-2 {
+    opacity: 0;
+
+}
+
+.right-2 img,.left-2 img {
+    width: 400px;
+}
+
+.center img {
+    width: 500px;
+ }
+
+
+.hidden {
+    opacity: 0;
+ }
+
+
+.fancy-carousel-border {
+    margin-top: 150px;
+}
+
+
+.fancy-carousel-element img {
+    border-radius: 0%;
+    object-fit: contain; /* Пропорциональное масштабирование изображений */
+
+}
+
+.fancy-carousel-navigation-button {
+    background-color: #cb786c;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.fancy-carousel-navigation-button:hover {
+    background-color: #a55c53;
+}
+
+.btn--wrapper-spinner {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Кнопки навигации остаются видимыми поверх карусели */
+}
+
+@media screen and (max-width: 1440px) {
+
 }

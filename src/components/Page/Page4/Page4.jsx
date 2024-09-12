@@ -5,7 +5,7 @@ const Page4 = () => {
   return (
     <>
       <div className="wrapper--fourth--page">
-        <img className="imagePage" src={pageImg} alt="" />
+        <img className="imagePageThree" src={pageImg} alt="" />
       </div>
       <div className="page4Title">
         WEB3 driven projects on <span> Aixland</span>

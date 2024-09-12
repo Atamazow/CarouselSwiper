@@ -1,104 +1,57 @@
 .wrapper--blue--block {
-    background-image: url("../../assets/image/GreenBlock.svg");
-    height: 545px;
-    background-size: cover;
-    width: 1920px;
-    max-width: 100%;
-    margin: -88px auto;
-    background-position: center;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.white--block--text {
-    display: flex;
-    position: absolute;
-    left: 18.5%;
-    top: 10%;
-}
-
-.wrapper--white--block {
-    background-image: url("../../assets/image/WhiteBlock.svg");
-    height: 476px;
-    width: 517px;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-}
-
-.white--text {
-    font-family: Goldman;
-    text-transform: uppercase;
-    font-size: 32px;
-    font-weight: Bold;
-    line-height: 32px;
-    width: 394px;
-    text-align: center;
-}
-
-.blue--wrapper--text {
-    margin-top: 24px;
-    display: flex;
-}
-
-.blue--text {
-    font-family: "Golos Text";
-    width: 281px;
-    color: white;
-    font-size: 16px;
-}
-
-.blue--wrapper--text > :nth-child(2) {
-    margin-left: 20px;
-}
-
-.blue--about-title {
-    font-family: "Golos Text";
-    color: white;
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.white--subTitle {
-    margin-left: 95px;
-}
-
-.btn--white--logo {
-    background-image: url("../../assets/image/orangBtn.png");
+    background-image: url("../../assets/image/Group 1321318498.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 288px;
-    height: 78px;
-    cursor: pointer;
-    font-size: 20px;
-    color: #FFFFFF;
+    width: 100%;
+    aspect-ratio: 1880 / 545; /* Задайте правильное соотношение сторон */
+    max-width: 1920px;
+    margin: 0px auto;
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transform:  rotate(90deg);
-    margin-top: 50px;
- }
-
-
-.logoWhite {
-    transform: rotate(-90deg);
 }
 
-@media only screen  and (max-width: 1550px) {
-    .white--block--text {
-        display: flex;
-        position: absolute;
-        left: 10%;
-        top: 10%;
-    }
+
+@media screen and (max-width: 1440px){
+
+
+}
+
+
+@media screen and (max-width: 1240px)  {
+
+
+}
+
+@media screen and (max-width: 1024px) and (min-width: 940px) {
+
+
+}
+
+@media screen and (max-width: 820px){
     .wrapper--blue--block {
-        margin-top: -24px;
+        background: url("../../assets/image/GreenBlock820.svg");
+        background-size: cover;
+        background-position: center center;
+        max-width: 100%;
+        margin: -25px auto;
+        border-radius: 15px;
+        width: 820px;
+        aspect-ratio: 17 / 5;
     }
-    .white--subTitle {
-        margin-left: 95px;
+
+}
+
+@media screen and (min-width: 375px) and (max-width: 568px) {
+    .wrapper--blue--block {
+        background: url("../../assets/image/GreenBlock375.svg");
+        background-size: cover;
+        background-position: center center;
+        max-width: 100%;
+        margin: 2px auto;
+        border-radius: 15px;
+        width: 568px;
+         aspect-ratio: 8 / 6;
     }
 }
+

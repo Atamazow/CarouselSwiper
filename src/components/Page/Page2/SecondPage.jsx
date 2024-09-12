@@ -4,14 +4,14 @@ import "./SecondPage.css";
 
 const SecondPage = () => {
   return (
-    <>
+    <div className="secondPage--main">
       <div className="wrapper--page--second">
-        <img className="imagePage" src={pageImg} alt="" />
+        <img className="imagePageSecond" src={pageImg} alt="" />
       </div>
       <div className="pageSecondTitle">
-        What problems are <span> we solving? </span>
+        What problems are <br /> <span> we solving? </span>
       </div>
-    </>
+    </div>
   );
 };
 

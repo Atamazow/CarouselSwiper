@@ -1,9 +1,12 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
+import "react-fancy-circular-carousel/FancyCarousel.css";
+
 import LazyLoadComponent from "./components/LazyPlaceholder/LazyLoadComponent";
 import Footer from "./components/Footer/Footer";
+
+import { Carousel } from "./components/Carousel/Carousel";
 const BlueBlock = lazy(() => import("./components/BlueBlock/BlueBlock"));
 
-const Carousel = lazy(() => import("./components/Carousel/Carousel"));
 const Rombik = lazy(() => import("./components/Rombik/Rombik"));
 const ContactAixLand = lazy(
   () => import("./components/ContactAixLand/ContactAixLand"),
@@ -21,8 +24,9 @@ const SecondPage = lazy(() => import("./components/Page/Page2/SecondPage"));
 function App(props) {
   return (
     <>
+      <Header />
+
       <div className="App-wrapper">
-        <Header />
         <div className="main-App">
           <LazyLoadComponent component={World} />
           <LazyLoadComponent component={PageFirst} />
@@ -31,7 +35,7 @@ function App(props) {
           <LazyLoadComponent component={SecondPage} />
           <LazyLoadComponent component={Rombik} />
           <LazyLoadComponent component={Page4} />
-          <LazyLoadComponent component={Carousel} />
+          <Carousel carouselRadius={1200} />
           <LazyLoadComponent component={TitleAixLand} />
           <LazyLoadComponent component={ContactAixLand} />
         </div>

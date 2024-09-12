@@ -1,11 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+* {
+    /*outline: 1px solid red;*/
+    box-sizing: border-box;
+}
 body {
     padding: 0;
-    margin: 0 20px 0 20px;
+
+     margin: 0 10px 0 10px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -18,28 +24,8 @@ code {
     monospace;
 }
 
-    /*.main-App {*/
-    /*    width: 100%; !* Занимает всю ширину доступного пространства *!*/
-    /*    max-width: 1920px; !* Максимальная ширина для больших экранов *!*/
-    /*    margin: 0 auto; !* Центрирование содержимого *!*/
-    /*}*/
-
-    /*@media (max-width: 1550px) {*/
-    /*    .main-App {*/
-    /*        max-width: 1000px;*/
-    /*    }*/
-    /*}*/
 
 
-    /*@media (max-width: 1200px) {*/
-    /*    .main-App {*/
-    /*        max-width: 1000px;*/
-    /*    }*/
-    /*}*/
 
-    /*@media (max-width: 768px) {*/
-    /*    .main-App {*/
-    /*        max-width: 100%;*/
-    /*        padding: 0 20px; !* Добавить отступы для небольших экранов *!*/
-    /*    }*/
-    /*}*/
+
+

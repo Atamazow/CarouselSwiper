@@ -2,6 +2,7 @@
 .country-selector {
     position: relative;
     width: 545px;
+    max-width: 100%;
     padding: 16px 20px;
      border-radius: 8px;
     background-color: #F7F7F7;
@@ -77,4 +78,18 @@
 
 .phone-input::placeholder {
     color: #25282A;
+}
+
+@media screen and (max-width: 768px) {
+    .country-selector {
+        width: 700px;
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 567px) {
+    .country-selector {
+        width: 350px;
+        max-width: 100%;
+    }
 }

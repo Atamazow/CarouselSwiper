@@ -1,32 +1,47 @@
 .footer--wrapper {
-    margin-top: 60px;
+    background-color: #21B48C;
+    width: 100%;
+    margin: 60px auto 10px auto;
+    border-radius: 20px;
+    clip-path: polygon(
+            0 0, 30% 0, 32% 11px, 68% 10px, 70% 0, 100% 0,
+            100% 100%, 70% 100%, 68% calc(100% - 11px), 32% calc(100% - 10px), 30% 100%, 0 100%
+    );
 }
 
 .footer {
-    background-image: url("../../assets/image/Footerpng.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    margin: auto;
+    padding-bottom: 40px;
     width: 100%;
-    height: 959px; /* Убедитесь, что контейнер имеет минимальную высоту */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    position: relative;
- }
+    height: auto;
+    border-radius: 20px;
+}
 
-.footer--wrapper-content {
+.wrapper--footerAxi--logo {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto 20px auto;
+    width: 95%;
 }
 
-.footer--content {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.wrapper--footerAxi--logo img {
+    width: 100%;
+    padding-bottom: 50px;
 }
+
+.footer--wrapper-content {
+    display: flex;
+    justify-content: center;
+    padding-top: 154px;
+    align-items: center;
+    max-width: 700px;
+    width: 100%;
+    margin: auto;
+
+}
+
+
 
 .footer--nav {
     display: flex;
@@ -35,7 +50,7 @@
     justify-content: center;
 }
 
-.footer--content--nav{
+.footer--content--nav {
     background-color: #EAEAEA;
     padding: 30px 40px;
     box-sizing: border-box;
@@ -43,12 +58,11 @@
     margin-left: 16px;
     margin-right: 16px;
     max-width: 100%;
-
-}
+ }
 
 .footer--nav li {
     font-family: "Golos Text", sans-serif;
-    font-size: 23px;
+    font-size: 24px;
     color: #9D9DA3;
     margin-left: 16px;
     cursor: pointer;
@@ -58,35 +72,95 @@
     text-align: center;
     margin-top: 54px;
     font-family: "Goldman", Regular;
-    font-size: 34px;
+    font-size: 24px;
+    line-height: 27px;
+    color: white;
+    padding-bottom: 47px;
+    box-sizing: border-box;
 }
+
 .footer--bottom--content {
     font-family: "Golos Text", sans-serif;
-
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: space-between;
-    position: absolute;
-    bottom: 5px;
-    color: #5F5F5F;
+    color: #000000;
 }
 
 .footer--bottom--oneTitle {
-    margin-left: 20px;
+    margin-left: 36px;
+    color: #fff;
 }
+
 .footer--bottom--three {
-    margin-right: 20px;
+    margin-right: 36px;
+    color: #fff;
 }
 
 .footer--bottom--link {
     border: 1px solid #EAEAEA;
     padding: 16px 30px;
     border-radius: 40px;
-    color: #5F5F5F;
+
+    background-color: white;
+    color: #000000;
+    font-size: 16px;
     text-decoration: none;
 }
 
-@media only  screen and  (max-width: 1550px) {
+@media screen and (max-width: 1440px) {
 
+}
+
+@media screen and (min-width: 771px) and (max-width: 1024px) {
+    .footer--wrapper {
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 568px) and (max-width: 770px) {
+    .footer--wrapper-content {
+        padding-top: 100px;
+    }
+    .footer--nav li {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 567px) {
+
+    .footer--wrapper-content {
+        padding-top: 100px;
+    }
+
+    .footer--contacts {
+        margin-top: 24px;
+        font-size: 16px;
+        line-height: 27px;
+
+    }
+    .footer--content--nav {
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .footer--nav li {
+        color: white;
+    }
+
+    .footer--nav {
+        display: block;
+    }
+    .footer--circle {
+        display: none;
+    }
+    .footer--bottom--oneTitle,.footer--bottom--three {
+        font-size: 10px;
+        margin: 0 10px;
+    }
+    .footer--bottom--link {
+        font-size: 10px;
+    }
 }

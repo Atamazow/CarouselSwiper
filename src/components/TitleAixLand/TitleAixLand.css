@@ -9,7 +9,7 @@
     margin: 0;
     padding: 0;
     text-align: center;
-    font-size: 265px;
+    font-size: 13vw;
     font-weight: bold;
     font-family: Goldman, Bold;
     text-transform: uppercase;
@@ -35,21 +35,10 @@
     color: #21B48C;
 }
 
-@media screen and (max-width: 1960px) {
-    .titleAixland--wrapper h1 {
-        font-size: 235px;
-    }
-}
-
-@media screen and (max-width: 1550px) {
-    .titleAixland--wrapper h1 {
-        font-size: 204px;
-    }
-}
 
 @media screen and (max-width: 1440px) {
     .titleAixland--wrapper h1 {
-        font-size: 180px;
+        font-size: 13vw;
     }
 }
 
@@ -57,4 +46,14 @@
     .titleAixland--wrapper h1 {
         font-size: 13vw;
     }
+}
+
+@media screen and (max-width: 768px) {
+    .titleAixland--wrapper {
+        margin-top: 100px;
+
+    }
+    .titleAixland--wrapper h1 {
+        font-size: 12vw;
+     }
 }

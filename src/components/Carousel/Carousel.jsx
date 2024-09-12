@@ -1,257 +1,220 @@
-import { useState, useEffect, useRef } from "react";
-import image1 from "../../assets/carouselImage/Frame 427320831.png";
-import image2 from "../../assets/carouselImage/Frame 427320833.png";
-import image3 from "../../assets/carouselImage/Frame 427320832.png";
-import image4 from "../../assets/carouselImage/apartment4.png";
+import React, { useEffect, useState } from "react";
+import "./Carousel.css";
 import borderDuga from "../../assets/carouselImage/duga.svg";
-import "./Carousel.css"; // Подключаем CSS файл
+import CarouselHeaderDuga from "../../assets/carouselImage/CarouselHeaderDuga.svg";
 import "./Border.css";
-const slides = [
+import image1 from "../../assets/spinnerImage/image1.png";
+import image2 from "../../assets/spinnerImage/image2.png";
+import image3 from "../../assets/spinnerImage/image3.png";
+import image4 from "../../assets/spinnerImage/image4.png";
+import image5 from "../../assets/spinnerImage/image5.png";
+import image6 from "../../assets/spinnerImage/image6.png";
+import image7 from "../../assets/spinnerImage/image7.png";
+import image8 from "../../assets/spinnerImage/image8.png";
+import image9 from "../../assets/spinnerImage/image9.png";
+import image10 from "../../assets/spinnerImage/image10.png";
+import image11 from "../../assets/spinnerImage/image11.png";
+const images = [
   { id: 1, src: image1, alt: "Carousel" },
   { id: 2, src: image2, alt: "Carousel" },
   { id: 3, src: image3, alt: "Carousel" },
   { id: 4, src: image4, alt: "Carousel" },
-  { id: 5, src: image2, alt: "Carousel" },
-  { id: 6, src: image3, alt: "Carousel" },
-  { id: 7, src: image1, alt: "Carousel" },
-  { id: 8, src: image2, alt: "Carousel" },
-  { id: 9, src: image3, alt: "Carousel" },
-  { id: 10, src: image4, alt: "Carousel" },
-  { id: 11, src: image2, alt: "Carousel" },
+  { id: 5, src: image5, alt: "Carousel" },
+  { id: 6, src: image6, alt: "Carousel" },
+  { id: 7, src: image7, alt: "Carousel" },
+  { id: 8, src: image8, alt: "Carousel" },
+  { id: 9, src: image9, alt: "Carousel" },
+  { id: 10, src: image10, alt: "Carousel" },
+  { id: 11, src: image11, alt: "Carousel" },
   { id: 12, src: image2, alt: "Carousel" },
   { id: 13, src: image4, alt: "Carousel" },
   { id: 14, src: image2, alt: "Carousel" },
   { id: 15, src: image3, alt: "Carousel" },
   // другие изображения...
 ];
+export const Carousel = ({ autoRotateTime = 0 }) => {
+  const [carousel, setCarousel] = useState({
+    carouselOrietation: 0,
+    elementOrientation: 0,
+    focusElement: 0, // Добавляем `focusElement` для отслеживания центрального элемента
+  });
+  const [isDisabledStap] = useState(false);
+  let carouselRadius = 1200;
+  let number = 300;
+  const noOfImages = images.length;
+  const theta = 360 / noOfImages;
 
-const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(() =>
-    Math.round(slides.length / 2),
-  );
-  const [angle, setAngle] = useState(0);
-  const [velocity, setVelocity] = useState(0);
-  const [dragStartX, setDragStartX] = useState(null);
-  const [isDisabledStap, setIsDisabledStap] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
-  const radius = 720; // радиус окружности
-  const itemAngle = 360 / slides.length; // угол, охватывающий один элемент
-  const Dragging = useRef(false);
-  const lastMoveTime = useRef(0);
-  const dragStartXRef = useRef(0);
-  const [houses, setHouses] = useState(11);
-
-  useEffect(() => {
-    const initialAngle = itemAngle * 1.25;
-    setAngle(initialAngle);
-  }, [itemAngle]);
-
-  useEffect(() => {
-    if (velocity !== 0) {
-      const interval = setInterval(() => {
-        setAngle((prevAngle) => {
-          let newAngle = prevAngle + velocity;
-
-          // Определяем ближайший индекс к 270 градусам
-          const topIndex = getTopIndex();
-          const targetAngle = 270 - topIndex * itemAngle; // Целевой угол
-
-          // Нормализуем угол
-          const normalizedAngle = newAngle % 360;
-
-          // Если угол близок к целевому, начинаем плавное торможение и выравнивание
-          if (Math.abs(normalizedAngle - targetAngle) < 10) {
-            const diff = targetAngle - normalizedAngle;
-            newAngle += diff * 0.1; // Плавно подгоняем угол к целевому
-            setVelocity((prevVelocity) => prevVelocity * 0.95); // Плавное замедление
-          }
-
-          return newAngle;
-        });
-
-        setVelocity((prevVelocity) => {
-          const newVelocity = prevVelocity * 0.8; // Замедляем вращение постепенно
-          if (Math.abs(newVelocity) < 0.001) {
-            clearInterval(interval);
-            return 0;
-          }
-          return newVelocity;
-        });
-      }, 16);
-      return () => clearInterval(interval);
-    }
-  }, [velocity]);
-  const handleMouseDown = (event) => {
-    Dragging.current = true;
-    lastMoveTime.current = event.timeStamp;
-    event.preventDefault();
-    const startX = event.clientX;
-
-    const handleMouseMove = (moveEvent) => {
-      if (Dragging.current) {
-        const dx = moveEvent.clientX - startX;
-        const dt = moveEvent.timeStamp - lastMoveTime.current;
-        const speed = dx / dt;
-
-        // Уменьшение коэффициента для медленного вращения
-        setAngle((prevAngle) => prevAngle + dx * 0.009); // Здесь коэффициент dx * 0.01 для медленного вращения
-        setVelocity(speed * 0.5); // Также уменьшаем скорость, чтобы спиннер вращался медленно
-        lastMoveTime.current = moveEvent.timeStamp;
-      }
-    };
-
-    const handleMouseUp = () => {
-      Dragging.current = false;
-      dragStartXRef.current = event.clientX;
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseup", handleMouseUp);
-  };
-  const animateRotation = (startAngle, endAngle, duration, onAnimationEnd) => {
-    const startTime = performance.now();
-    const animate = (currentTime) => {
-      const elapsedTime = currentTime - startTime;
-      const progress = Math.min(elapsedTime / duration, 1);
-      const currentAngle = startAngle + (endAngle - startAngle) * progress;
-      setAngle(currentAngle);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        onAnimationEnd();
-        // Вызов функции по завершению анимации
-      }
-    };
-    requestAnimationFrame(animate);
+  const rotateRight = () => {
+    setCarousel((prev) => ({
+      ...prev,
+      carouselOrietation: prev.carouselOrietation + theta,
+      elementOrientation: prev.elementOrientation - theta,
+      focusElement: (prev.focusElement + 1) % noOfImages,
+    }));
   };
 
-  const spinCarousel = (direction) => {
-    setIsDisabledStap(true);
-    if (!isDisabledStap) {
-      setTimeout(() => setIsDisabledStap(false), 300);
-    }
-    const targetIndex =
-      (currentIndex + direction + slides.length) % slides.length; // Рассчитываем новый индекс
-    setIsDragging(false);
-    Dragging.current = false;
-    const startAngle = angle;
-    const endAngle = startAngle + direction * itemAngle;
-    animateRotation(startAngle, endAngle, 250, () => {
-      setCurrentIndex(targetIndex); // Обновляем индекс после завершения анимации
-    });
+  const rotateLeft = () => {
+    setCarousel((prev) => ({
+      ...prev,
+      carouselOrietation: prev.carouselOrietation - theta,
+      elementOrientation: prev.elementOrientation + theta,
+      focusElement: (prev.focusElement - 1 + noOfImages) % noOfImages,
+    }));
   };
 
-  const handlePrevClick = () => {
-    spinCarousel(-1);
-    setHouses((prev) => (prev < 15 ? prev + 1 : 1));
-  };
+  const newCoordinates = images.map((item, index) => [
+    carouselRadius -
+      number +
+      carouselRadius * Math.cos((2 * Math.PI * index) / noOfImages),
+    carouselRadius -
+      number +
+      carouselRadius * Math.sin((2 * Math.PI * index) / noOfImages),
+  ]);
 
-  const handleNextClick = () => {
-    spinCarousel(1);
-    setHouses((prev) => (prev > 1 ? prev - 1 : 15));
-  };
-  const getTopIndex = () => {
-    const normalizedAngle = angle % 360;
-    const nearestIndex = slides
-      .map((_, i) => (i * itemAngle + normalizedAngle + 360) % 360)
-      .map((a) => Math.abs(a - 270))
-      .reduce(
-        (minIndex, diff, i, diffs) => (diff < diffs[minIndex] ? i : minIndex),
-        0,
-      );
-    return nearestIndex;
-  };
+  const totalDeviation = Math.PI / 2;
+  const centerCoordinate = carouselRadius - number;
+
+  const rotatedCoordinates = newCoordinates.map((item) => [
+    centerCoordinate +
+      (item[0] - centerCoordinate) * Math.cos(totalDeviation) -
+      (item[1] - centerCoordinate) * Math.sin(totalDeviation),
+    centerCoordinate +
+      (item[0] - centerCoordinate) * Math.sin(totalDeviation) +
+      (item[1] - centerCoordinate) * Math.cos(totalDeviation),
+  ]);
 
   const getClassNames = (index) => {
-    const topIndex = getTopIndex();
+    const topIndex = carousel.focusElement;
+    const relativeIndex = (index - topIndex + images.length) % images.length;
 
-    if (index === topIndex) return "carousel-item center"; // Центральный элемент на вершине
-    const relativeIndex = (index - topIndex + slides.length) % slides.length;
+    if (index === topIndex) return "center";
+    if (relativeIndex === 1) return "right-1";
+    if (relativeIndex === 2) return "right-2";
+    if (relativeIndex === images.length - 1) return "left-1";
+    if (relativeIndex === images.length - 2) return "left-2"; // Второй слева от центра
 
-    if (relativeIndex === 1) return "carousel-item right-1"; // Первый справа от центра
-    if (relativeIndex === 2) return "carousel-item right-2"; // Второй справа от центра
-    if (relativeIndex === slides.length - 1) return "carousel-item left-1"; // Первый слева от центра
-    if (relativeIndex === slides.length - 2) return "carousel-item left-2"; // Второй слева от центра
-
-    return "carousel-item hidden"; // Остальные элементы скрыты
+    return "hidden";
   };
+  useEffect(() => {
+    let startTouchX = 0;
+    let endTouchX = 0;
+
+    const spinnerElement = document.querySelector(
+      ".fancy-carousel-wrapper-element",
+    );
+
+    const touchStartHandler = (event) => {
+      startTouchX = event.changedTouches[0].pageX;
+    };
+
+    const touchEndHandler = (event) => {
+      endTouchX = event.changedTouches[0].pageX;
+      if (endTouchX > startTouchX) {
+        rotateRight();
+      }
+      if (endTouchX < startTouchX) {
+        rotateLeft();
+      }
+    };
+
+    if (spinnerElement) {
+      spinnerElement.addEventListener("touchstart", touchStartHandler);
+      spinnerElement.addEventListener("touchend", touchEndHandler);
+    }
+
+    return () => {
+      if (spinnerElement) {
+        spinnerElement.removeEventListener("touchstart", touchStartHandler);
+        spinnerElement.removeEventListener("touchend", touchEndHandler);
+      }
+    };
+  }, []);
 
   return (
-    <>
-      <div className="carousel-wrapper">
+    <div>
+      <div className="wrapper--header--duga">
+        <img src={CarouselHeaderDuga} alt="" />
+      </div>
+      <div className="fancy-carousel-wrapper-element">
         <div
-          className="carousel-viewport"
-          onMouseDown={handleMouseDown}
-          onMouseLeave={() => setDragStartX(null)}
-        >
-          <div className="carousel-container">
-            {slides.map((item, index) => {
-              const theta = index * itemAngle + angle;
-              const x = radius * Math.cos(theta * (Math.PI / 180));
-              const y = radius * Math.sin(theta * (Math.PI / 180));
-
-              const classNames = getClassNames(index);
+          className={`fancy-carousel-navigators ${
+            autoRotateTime ? "invisible" : ""
+          }`}
+          style={{
+            gap: `${carouselRadius * 2}px`,
+          }}
+        ></div>
+        <div className="fancy-carousel-border">
+          <div
+            className="fancy-carousel"
+            style={{
+              transform: `rotate(${carousel.carouselOrietation}deg)`,
+              height: `${carouselRadius * 2}px`,
+              width: `${carouselRadius * 2}px`,
+            }}
+          >
+            {images.map(({ src }, index) => {
+              const className = getClassNames(index);
+              let additionalRotation = 0;
+              if (className === "left-1") {
+                additionalRotation = 24; // Угол для левого
+              } else if (className === "right-1") {
+                additionalRotation = -24; // Угол для правого
+              }
 
               return (
                 <div
+                  className={`fancy-carousel-element ${className}`}
                   key={index}
-                  className={classNames}
                   style={{
-                    position: "absolute",
+                    left: `${rotatedCoordinates[index][0]}px`,
+                    bottom: `${rotatedCoordinates[index][1]}px`,
 
-                    left: `${x + radius - 50}px`,
-                    top: `${y + radius - 50}px`,
+                    // Применяем дополнительный rotate для left-1 и right-1
+                    transform: `rotate(${-carousel.carouselOrietation}deg) rotate(${additionalRotation}deg)`,
                   }}
                 >
-                  <img src={item.src} alt={item.alt} className="image" />
-                  <div className="item-alt-text">{item.id}</div>
+                  <img
+                    className="fancy-carousel-image"
+                    src={src}
+                    style={{
+                      transform: "none",
+                    }}
+                  />
                 </div>
               );
             })}
           </div>
-          <div className="container">
-            <div>
-              <img className="imageDuga" src={borderDuga} alt="" />
-            </div>
-            <div className="text-navigation-container">
-              <div className="navigation">
-                <button
-                  disabled={isDisabledStap}
-                  onClick={handleNextClick}
-                  className="forward"
-                >
-                  ←
-                </button>
-                {houses}
-                <button
-                  disabled={isDisabledStap}
-                  onClick={handlePrevClick}
-                  className="back"
-                >
-                  →
-                </button>
-              </div>
-            </div>
-            <div className="wrapper--carousel--textBtn">
-              <div className="carousel--subtitle">
-                Multi-story houses <br /> <span>houses</span>
-              </div>
-              <div className="carousel--text">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa
-              </div>
-              <div className="carousel--btn">
-                <div className="carousel--btn-title">READ MORE</div>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div className="container">
+        <div>
+          <img className="imageDuga" src={borderDuga} alt="" />
+        </div>
+        <div className="text-navigation-container">
+          <div className="navigation">
+            <button disabled={isDisabledStap} onClick={rotateLeft}>
+              ←
+            </button>
+            Houses
+            <button disabled={isDisabledStap} onClick={rotateRight}>
+              →
+            </button>
+          </div>
+        </div>
+        <div className="wrapper--carousel--textBtn">
+          <div className="carousel--subtitle">
+            Multi-story houses <span>houses</span>
+          </div>
+          <div className="carousel--text">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa
+          </div>
+          <div className="carousel--btn">
+            <div className="carousel--btn-title">READ MORE</div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
-
-export default Carousel;

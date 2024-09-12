@@ -29,5 +29,9 @@
 
 }
 
-
+@media screen and  (max-width: 834px) {
+    .image--romb {
+        display: none;
+    }
+}
 

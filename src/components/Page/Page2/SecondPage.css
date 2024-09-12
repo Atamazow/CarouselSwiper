@@ -1,17 +1,20 @@
+.secondPage--main {
+    margin: 200px 0 150px 0;
+}
+
 .wrapper--page--second {
     border: 1px solid  #D9D9D9;
     width:175px;
-    height: 90px;
     padding: 10px;
     display: flex;
-    margin: 200px auto 16px auto;
+    margin: auto;
     border-radius: 80px;
-
 }
 
-.imagePage {
+.imagePageSecond {
     width: 100px;
     margin: auto;
+
 }
 
 .pageSecondTitle {
@@ -27,3 +30,29 @@
 .pageSecondTitle > span {
     color: #21B48C;
 }
+
+@media screen and (max-width: 768px)   {
+    .wrapper--page--second {
+        margin: 100px auto 0 auto;
+    }
+    .pageSecondTitle {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 567px) {
+    .secondPage--main {
+        margin: 100px 0 100px 0;
+    }
+    .wrapper--page--second {
+        width:125px;
+    }
+    .imagePageSecond {
+        width: 65px;
+
+    }
+    .pageSecondTitle {
+        width: 328px;
+    }
+}
+

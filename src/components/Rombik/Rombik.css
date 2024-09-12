@@ -175,5 +175,23 @@
     .headerDugaRomb {
         margin-left: 0;
     }
+}
+
+@media screen and  (max-width: 768px) {
+    .wrapper--romb--content {
+        margin-top: 70px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 567px) {
+    .hexStepCard--wrapper {
+        grid-template-columns: repeat(1, 340px);
+        grid-template-rows: repeat(1, 295px);
+        grid-row-gap: 20px;
+    }
+    .hexStepCard--wrapper > :nth-child(2) {
+        margin-top: 40px;
+        align-self: center;
+    }
 
 }

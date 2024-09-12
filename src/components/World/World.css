@@ -2,11 +2,15 @@
     background: url("../../assets/image/HeaderLogoX.svg") center;
     background-size: cover;
     height: 1253px;
-    margin-top: 100px;
+    margin-top: 50px;
+    position: relative;
  }
 .wrapper--logo--world  {
     display: flex;
     justify-content: center;
+    align-items: center;
+
+
 }
 
 .world--logoAix {
@@ -14,11 +18,8 @@
     justify-content: center;
 }
 .world {
-    background: url("../../assets/image/Sota_Planet.svg") center;
-    width: 780px;
-    height: 752px;
-    background-size: cover;
-    position: relative;
+    width: 100%;
+    height: 800px;
   }
 
 .world--btn {
@@ -34,35 +35,59 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 55%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -55%);
+    transform: translate(-50%, -50%);
 }
 
-@media (max-width: 1440px) {
-    .world {
-         width: 638px;
-        height: 616px;
 
-    }
-}
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .world--logo--wrapper {
          height: 880px;
     }
     .world--Aix {
-        width: 300px ;
+        width: 400px ;
     }
-    .world {
-        width: 638px;
-        height: 616px;
 
+    .world {
+        width: 938px;
+        height: 548px;
     }
     .world--btn {
+        width:220px;
+        height: 60px;
         position: absolute;
-        top: 50%;
+        bottom: 0%;
         left: 50%;
         transform: translate(-50%, -40%);
     }
+}
+
+
+
+@media screen and (max-width: 567px) {
+    .wrapper--world {}
+    .world--logo--wrapper {
+        position: relative;
+        height: 393px;
+
+     }
+    .world--Aix {
+        width: 150px ;
+    }
+    .world {
+         /* Или попробуй задать большую высоту */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 270px;
+     }
+    .world--btn {
+        position: absolute;
+        bottom: -35%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        align-self: center;
+     }
 }

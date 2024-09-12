@@ -1,15 +1,13 @@
 .wrapper--fourth--page {
     border: 1px solid  #D9D9D9;
     width:175px;
-    height: 90px;
     padding: 10px;
     display: flex;
     margin: 200px auto 0;
     border-radius: 80px;
-
 }
 
-.imagePage {
+.imagePageThree {
     width: 100px;
     margin: auto;
 }
@@ -27,3 +25,26 @@
 .page4Title > span {
     color: #21B48C;
 }
+
+@media screen and (max-width: 768px)  {
+    .wrapper--fourth--page {
+        margin: 100px auto 0 auto;
+     }
+    .page4Title {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 567px) {
+    .page4Title {
+         width: 328px;
+    }
+    .wrapper--fourth--page {
+        width: 125px
+    }
+    .imagePageThree {
+        width: 65px;
+    }
+
+}
+
