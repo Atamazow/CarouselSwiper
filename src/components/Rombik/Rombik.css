@@ -4,6 +4,7 @@
 }
 
 .backgroundImageRombik {
+
     background-image: url("../../assets/image/RombikImageBackround.svg");
     background-repeat: no-repeat;
     background-size: contain ;
@@ -177,9 +178,23 @@
     }
 }
 
-@media screen and  (max-width: 768px) {
+@media screen and  (max-width: 834px) {
+
+    .hexStepCard--wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 280px);
+        grid-template-rows: repeat(3, 245px);
+        justify-items: center;
+        align-items: center;
+    }
+
     .wrapper--romb--content {
         margin-top: 70px;
+    }
+
+    .card-block {
+        width: 270px;
+        height: 300px
     }
 }
 
@@ -190,7 +205,7 @@
         grid-row-gap: 20px;
     }
     .hexStepCard--wrapper > :nth-child(2) {
-        margin-top: 40px;
+
         align-self: center;
     }
 
